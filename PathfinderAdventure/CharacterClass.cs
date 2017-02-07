@@ -21,14 +21,18 @@ namespace PathfinderAdventure
         public string Description { get; set; }
         public List<ClassFeat>[] ClassFeats { get; set; }
 
-        private SavingThrows[] savingThrows;
+        public List<SavingThrows> SavingThrows { get; set; }
 
-        public CharacterClass(string name, string description)
+        public CharacterClass()
+        {
+            SavingThrows = new List<SavingThrows>();
+        }
+
+        public CharacterClass(string name, string description) : this()
         {
             this.Name = name;
             this.Description = description;
             ClassFeats = new List<ClassFeat>[20];
-            savingThrows = new SavingThrows[20];
             // TODO derived class and instanciation of specific class feats
         }
     }

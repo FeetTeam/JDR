@@ -14,6 +14,7 @@ namespace PathfinderAdventure
     /// </summary>
     public class SavingThrows
     {
+        public int Id { get; set; }
         public int Fortitude { get; set; }
 
         public int Reflex { get; set; }

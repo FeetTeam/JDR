@@ -34,13 +34,16 @@ namespace PathfinderAdventure
         public List<Weapon> Weapons { get; set; }
 
         public List<Equipment> Equipments { get; set; }
-        public Coins Coins { get; set; }
+
+        public Coins CoinsQuantity { get; set; }
         public int ArmorClass { get; set; }
+
         public int HealthPoint { get; set; }
         public List<Armor> Armors { get; set; }
 
         public Character()
         {
+            CoinsQuantity = new Coins() { };
             Armors = new List<Armor>();
         }
     }
