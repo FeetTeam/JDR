@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
+# Visual Studio 2012
+# SharpDevelop 4.4
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathfinderAdventure", "PathfinderAdventure\PathfinderAdventure.csproj", "{FC416B5A-3ABC-42EB-BF04-D87D0FB6E296}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCodeFirst", "TestCodeFirst\TestCodeFirst.csproj", "{FF58E7EF-A262-423C-ABC2-A277788F29B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterGenerator", "CharacterGenerator\CharacterGenerator.csproj", "{81539B5B-6011-4BC5-B917-981BA7DB41B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +24,10 @@ Global
 		{FF58E7EF-A262-423C-ABC2-A277788F29B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF58E7EF-A262-423C-ABC2-A277788F29B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF58E7EF-A262-423C-ABC2-A277788F29B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81539B5B-6011-4BC5-B917-981BA7DB41B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81539B5B-6011-4BC5-B917-981BA7DB41B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81539B5B-6011-4BC5-B917-981BA7DB41B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81539B5B-6011-4BC5-B917-981BA7DB41B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

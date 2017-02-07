@@ -20,9 +20,12 @@ namespace PathfinderAdventure
 
         private int sides;
         private DiceType diceType;
+        private Random random;
 
         public Dice(DiceType diceType)
         {
+        	random = new Random(DateTime.Now.Millisecond);
+        	
             this.diceType = diceType;
 
             switch (diceType)
@@ -58,8 +61,7 @@ namespace PathfinderAdventure
         }
 
         public int roll()
-        {
-            Random random = new Random(DateTime.Now.Millisecond);
+        {            
             return random.Next(1, sides + 1);
         }
     }

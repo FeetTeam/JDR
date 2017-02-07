@@ -84,7 +84,8 @@ namespace PathfinderAdventure
 
         private int processBonus()
         {
-            return (Value - 10) / 2;
+        	if(Value < 10 && Value % 2 == 1) return (Value - 10) / 2 - 1;
+        	else return (Value - 10) / 2;
         }
     }
 }

@@ -25,9 +25,9 @@ namespace PathfinderAdventure
         public DiceRoll(List<Dice> dices)
         {
             if (dices != null)
-                dices = dices;
+                this.dices = dices;
             else
-                dices = new List<Dice>();
+                this.dices = new List<Dice>();
         }
 
         public void add(Dice dice)
@@ -35,11 +35,20 @@ namespace PathfinderAdventure
             dices.Add(dice);
         }
 
+        
         public int roll()
         {
             int rollResult = 0;
             foreach (Dice dice in dices) rollResult += dice.roll();
             return rollResult;
+        }
+        
+        public void rollSeparately(int[]rollResult)
+        {
+        	for(int i=0; i<dices.Count && i < rollResult.Length; i++) rollResult[i] += dices[i].roll();
+        	if(rollResult.Length > dices.Count)
+        		for(int i = 0; i < dices.Count; i++) 
+        			rollResult[dices.Count] += rollResult[i];
         }
     }
 }
