@@ -14,9 +14,9 @@ namespace PathfinderAdventure
     /// </summary>
     public class Coins
     {
+        public int Id { get; set; }
         public int GoldCoins { get; set; }
         public int SilverCoins { get; set; }
-        private int copperCoins;
         public int CopperCoins { get; set; }
 
         public Coins()
@@ -48,17 +48,17 @@ namespace PathfinderAdventure
 
         public void winCopperCoins(int quantity)
         {
-            copperCoins += quantity;
+            CopperCoins += quantity;
         }
 
         public void spendSilverCoins(int quantity)
         {
-            copperCoins -= quantity;
+            CopperCoins -= quantity;
         }
 
         public int getTotal()
         {
-            return GoldCoins * 100 + SilverCoins * 10 + copperCoins;
+            return GoldCoins * 100 + SilverCoins * 10 + CopperCoins;
         }
     }
 }
