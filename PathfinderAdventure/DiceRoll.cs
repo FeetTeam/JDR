@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 
+using System;
 using System.Collections.Generic;
 
 namespace PathfinderAdventure
@@ -25,7 +26,7 @@ namespace PathfinderAdventure
         public DiceRoll(List<Dice> dices)
         {
             if (dices != null)
-                dices = dices;
+                this.dices = dices;
             else
                 dices = new List<Dice>();
         }

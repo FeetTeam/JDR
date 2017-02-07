@@ -13,7 +13,7 @@ namespace TestCodeFirst
         private static void Main(string[] args)
         {
             var dbctxt = new PathFinderDbContext();
-            //dbctxt.Database.Create();
+            dbctxt.Database.CreateIfNotExists();
             InitDb(dbctxt);
             var rep = new AbilitiesSetRepository();
             var res = rep.GetAbilitiesSets();
@@ -22,7 +22,7 @@ namespace TestCodeFirst
         public static void InitDb(PathFinderDbContext dbCtxt)
         {
             var characterBeurk = dbCtxt.Characters.FirstOrDefault(x => x.Name == "Beurk");
-            if (characterBeurk != null)
+            if (characterBeurk == null)
             {
                 var character = new Character { Name = "Beurk", };
                 var armor = new Armor("Armure en bronze") { };

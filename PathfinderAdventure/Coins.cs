@@ -14,6 +14,7 @@ namespace PathfinderAdventure
     /// </summary>
     public class Coins
     {
+        public int Id { get; set; }
         public int GoldCoins { get; set; }
         public int SilverCoins { get; set; }
         public int CopperCoins { get; set; }
