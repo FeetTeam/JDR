@@ -2,5 +2,7 @@ Taux de glande: 200%
 coin
 
 wouf
-modif de gpmodif de mhmodif de gp en //
+modif de gp
+modif de mh
+modif de gp en //
 On se calme
