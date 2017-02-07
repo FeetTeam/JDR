@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <ProjectGuid>{FC416B5A-3ABC-42EB-BF04-D87D0FB6E296}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <RootNamespace>PathfinderAdventure</RootNamespace>
+    <AssemblyName>PathfinderAdventure</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>False</DebugSymbols>
+    <DebugType>None</DebugType>
+    <Optimize>True</Optimize>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net40\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Adventure.cs" />
+    <Compile Include="Alignment.cs" />
+    <Compile Include="Armor.cs" />
+    <Compile Include="Ability.cs" />
+    <Compile Include="AbilitiesSet.cs" />
+    <Compile Include="BasePathFinder\AbilitiesSetRepository.cs" />
+    <Compile Include="BasePathFinder\PathFinderDbContext.cs" />
+    <Compile Include="Character.cs" />
+    <Compile Include="CharacterClass.cs" />
+    <Compile Include="ClassFeat.cs" />
+    <Compile Include="Coins.cs" />
+    <Compile Include="Dice.cs" />
+    <Compile Include="DiceRoll.cs" />
+    <Compile Include="DiceSet.cs" />
+    <Compile Include="DungeonMaster.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="Feat.cs" />
+    <Compile Include="FeatSet.cs" />
+    <Compile Include="FightGrid.cs" />
+    <Compile Include="ICharacterClass.cs" />
+    <Compile Include="Language.cs" />
+    <Compile Include="Languages.cs" />
+    <Compile Include="AdventureLevelList.cs" />
+    <Compile Include="NonPlayerCharacter.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerCharacter.cs" />
+    <Compile Include="Poison.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Race.cs" />
+    <Compile Include="RaceFeat.cs" />
+    <Compile Include="SavingThrows.cs" />
+    <Compile Include="Session.cs" />
+    <Compile Include="SessionSummary.cs" />
+    <Compile Include="Skill.cs" />
+    <Compile Include="SkillSet.cs" />
+    <Compile Include="Speed.cs" />
+    <Compile Include="Weapon.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

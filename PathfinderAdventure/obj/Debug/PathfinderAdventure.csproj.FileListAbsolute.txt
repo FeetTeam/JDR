@@ -1,0 +1,5 @@
+C:\Users\jerome\Documents\SharpDevelop Projects\PathfinderAdventure\PathfinderAdventure\obj\Debug\PathfinderAdventure.csprojResolveAssemblyReference.cache
+C:\Users\jerome\Documents\SharpDevelop Projects\PathfinderAdventure\PathfinderAdventure\bin\Debug\PathfinderAdventure.dll
+C:\Users\jerome\Documents\SharpDevelop Projects\PathfinderAdventure\PathfinderAdventure\bin\Debug\PathfinderAdventure.pdb
+C:\Users\jerome\Documents\SharpDevelop Projects\PathfinderAdventure\PathfinderAdventure\obj\Debug\PathfinderAdventure.dll
+C:\Users\jerome\Documents\SharpDevelop Projects\PathfinderAdventure\PathfinderAdventure\obj\Debug\PathfinderAdventure.pdb
