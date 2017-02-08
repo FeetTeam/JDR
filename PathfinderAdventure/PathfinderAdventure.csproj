@@ -67,6 +67,7 @@
     <Compile Include="Ability.cs" />
     <Compile Include="AbilitiesSet.cs" />
     <Compile Include="BasePathFinder\AbilitiesSetRepository.cs" />
+    <Compile Include="BasePathFinder\CharacterSetRepository.cs" />
     <Compile Include="BasePathFinder\PathFinderDbContext.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterClass.cs" />

@@ -21,7 +21,7 @@ namespace TestCodeFirst
 
         public static void InitDb(PathFinderDbContext dbCtxt)
         {
-            var characterBeurk = dbCtxt.Characters.FirstOrDefault(x => x.Name == "Beurk");
+            var characterBeurk = dbCtxt.Characters.FirstOrDefault();
             if (characterBeurk == null)
             {
                 var character = new Character { Name = "Beurk", };
