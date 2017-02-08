@@ -1,0 +1,15 @@
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\TestWPF.csprojResolveAssemblyReference.cache
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\Window1.baml
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\Window1.g.cs
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\App.g.cs
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\TestWPF_MarkupCompile.cache
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\TestWPF.g.resources
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\bin\Debug\TestWPF.exe
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\bin\Debug\TestWPF.pdb
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\bin\Debug\PathfinderAdventure.dll
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\bin\Debug\EntityFramework.dll
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\bin\Debug\PathfinderAdventure.pdb
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\bin\Debug\EntityFramework.xml
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\bin\Debug\fr\EntityFramework.resources.dll
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\TestWPF.exe
+C:\Users\jerome\Documents\SharpDevelop Projects\JDR\TestWPF\obj\Debug\TestWPF.pdb
