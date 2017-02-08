@@ -1,4 +1,6 @@
-﻿/*
+﻿using System.Collections.Generic;
+using System.Linq;
+/*
  * Created by SharpDevelop.
  * User: jerome
  * Date: 06/02/2017
@@ -87,5 +89,14 @@ namespace PathfinderAdventure
         	if(Value < 10 && Value % 2 == 1) return (Value - 10) / 2 - 1;
         	else return (Value - 10) / 2;
         }
+        
+        public static int generateAbilitieScore()
+		{
+			int [] rollResult = new int[4];
+			DiceRoll diceRoll = new DiceRoll(new List<Dice> {DiceSet.D6, DiceSet.D6, DiceSet.D6, DiceSet.D6});
+			diceRoll.rollSeparately(rollResult);			
+
+			return rollResult.OrderByDescending(x => x).Take(3).Sum();
+		}
     }
 }

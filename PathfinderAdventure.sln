@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCodeFirst", "TestCodeFi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterGenerator", "CharacterGenerator\CharacterGenerator.csproj", "{81539B5B-6011-4BC5-B917-981BA7DB41B8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWPF", "TestWPF\TestWPF.csproj", "{3EE2D0D9-5DAB-47E0-9F85-9AF11892601B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -28,6 +30,10 @@ Global
 		{81539B5B-6011-4BC5-B917-981BA7DB41B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{81539B5B-6011-4BC5-B917-981BA7DB41B8}.Release|Any CPU.Build.0 = Release|Any CPU
 		{81539B5B-6011-4BC5-B917-981BA7DB41B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3EE2D0D9-5DAB-47E0-9F85-9AF11892601B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3EE2D0D9-5DAB-47E0-9F85-9AF11892601B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3EE2D0D9-5DAB-47E0-9F85-9AF11892601B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3EE2D0D9-5DAB-47E0-9F85-9AF11892601B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
