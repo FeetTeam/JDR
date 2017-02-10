@@ -191,5 +191,24 @@
 					Content="0" />
 			</Canvas>
 		</GroupBox>
+		<Label
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="6,56,0,0"
+			Width="60"
+			Height="26"
+			Content="Race"
+			x:Name="lblRace" />
+		<TextBox
+			Grid.Column="0"
+			Grid.Row="0"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			Margin="66,59,0,0"
+			Width="120"
+			Height="20"
+			x:Name="txtRace" />
 	</Grid>
 </Window>
