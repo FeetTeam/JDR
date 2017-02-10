@@ -17,7 +17,7 @@ namespace PathfinderAdventure
     public class Languages
     {
         public int Id { get; set; }
-        public List<Language> Items { get; set; }
+        public List<Language> Items { get; private set; }
 
         public Languages()
         {

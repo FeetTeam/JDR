@@ -15,11 +15,11 @@ namespace PathfinderAdventure
     /// <summary>
     /// Description of Character.
     /// </summary>
-    public class Character
+    public class Character : ICharacter
     {
         public int Id { get; set; }
 
-        public string Name { get; set; }
+        public string CharacterName { get; set; }
         public int Gender { get; set; } // 0 female, 1 male, -1 non-binary / undefined
         public Alignment Alignment { get; set; }
         public Race Race { get; set; }
@@ -43,8 +43,7 @@ namespace PathfinderAdventure
 
         public Character()
         {
-            CoinsQuantity = new Coins() { };
-            Armors = new List<Armor>();
+            CoinsQuantity = new Coins();
         }
     }
 }

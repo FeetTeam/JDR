@@ -81,6 +81,7 @@
     <Compile Include="Feat.cs" />
     <Compile Include="FeatSet.cs" />
     <Compile Include="FightGrid.cs" />
+    <Compile Include="ICharacter.cs" />
     <Compile Include="ICharacterClass.cs" />
     <Compile Include="Language.cs" />
     <Compile Include="Languages.cs" />

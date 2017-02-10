@@ -8,11 +8,21 @@ namespace PathfinderAdventure.BasePathFinder
 {
     public class PathFinderDbContext : DbContext
     {
+        public PathFinderDbContext() : base("PfDb")
+        {
+        }
+
+        //public PathFinderDbContext(string name) : base(name)
+        //{
+        //}
+
         public DbSet<AbilitiesSet> AbilitiesSets { get; set; }
-        //public DbSet<Ability> Abilities { get; set; }
+        public DbSet<Ability> Abilities { get; set; }
+
         //public DbSet<Adventure> Adventures { get; set; }
         //public DbSet<AdventureLevelList> AdventureLevelLists { get; set; }
         //public DbSet<Session> Sessions { get; set; }
+        //public DbSet<Character> CoinsQuantity { get; set; }
 
         ////public DbSet<Armor> Armor { get; set; }
         public DbSet<Character> Characters { get; set; }
