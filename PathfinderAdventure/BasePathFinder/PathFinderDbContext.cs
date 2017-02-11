@@ -18,6 +18,7 @@ namespace PathfinderAdventure.BasePathFinder
 
         public DbSet<AbilitiesSet> AbilitiesSets { get; set; }
         public DbSet<Ability> Abilities { get; set; }
+        public DbSet<Armor> Armors { get; set; }
 
         //public DbSet<Adventure> Adventures { get; set; }
         //public DbSet<AdventureLevelList> AdventureLevelLists { get; set; }

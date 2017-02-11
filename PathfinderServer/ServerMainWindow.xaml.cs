@@ -28,9 +28,9 @@ namespace PathfinderServer
         public MainWindow()
         {
             InitializeComponent();
-            //var dbctxt = new PathfinderAdventure.BasePathFinder.PathFinderDbContext();
+            var dbctxt = new PathfinderAdventure.BasePathFinder.PathFinderDbContext();
 
-            //dbctxt.Database.CreateIfNotExists();
+            dbctxt.Database.CreateIfNotExists();
 
             service = new CharacterService();
             service.OnLog += Service_OnLog;

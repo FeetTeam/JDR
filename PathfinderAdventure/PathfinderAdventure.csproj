@@ -71,13 +71,17 @@
     <Compile Include="BasePathFinder\PathFinderDbContext.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterClass.cs" />
+    <Compile Include="CharacterHealth.cs" />
     <Compile Include="ClassFeat.cs" />
     <Compile Include="Coins.cs" />
+    <Compile Include="CreatureSize.cs" />
     <Compile Include="Dice.cs" />
     <Compile Include="DiceRoll.cs" />
+    <Compile Include="DiceRollModifying.cs" />
     <Compile Include="DiceSet.cs" />
     <Compile Include="DungeonMaster.cs" />
     <Compile Include="Equipment.cs" />
+    <Compile Include="Familiar.cs" />
     <Compile Include="Feat.cs" />
     <Compile Include="FeatSet.cs" />
     <Compile Include="FightGrid.cs" />

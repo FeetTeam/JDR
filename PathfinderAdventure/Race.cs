@@ -16,15 +16,12 @@ namespace PathfinderAdventure
     /// </summary>
     public class Race
     {
-        public enum RaceSize { SMALL, MEDIUM, LARGE };
-
-        public enum RaceSpeed { M6_5, M10 };
+        
 
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public RaceSize Size { get; set; }
-        public RaceSpeed Speed { get; set; }
+        public CreatureSize Size { get; set; }
         public List<Language> Languages { get; set; }
         public CharacterClass FavoredClass { get; set; }
         public int LevelAdjustment { get; set; }

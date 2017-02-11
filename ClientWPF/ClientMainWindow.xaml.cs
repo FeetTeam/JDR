@@ -63,14 +63,14 @@ namespace ClientWPF
 
                 if (charTemp.CharacterPersoWs.Id == 0)
                 {
-                    channelChat.GetCharacterPersoWs(charTemp.CharacterPersoWs.CharacterName);
+                    channelChat.GetCharacterPersoWs(charTemp.CharacterPersoWs.Name);
                 }
             }
         }
 
         private void btNew_Click(object sender, RoutedEventArgs e)
         {
-            charTemp = new CharacterWs { CharacterPersoWs = new PathfinderAdventure.Character() { CharacterName = "{init}" } };
+            charTemp = new CharacterWs { CharacterPersoWs = new PathfinderAdventure.Character() { Name = "{init}" } };
             canvas1.DataContext = charTemp.CharacterPersoWs;
         }
     }

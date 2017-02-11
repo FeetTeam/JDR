@@ -26,7 +26,7 @@ namespace TestCodeFirst
             var characterBeurk = dbCtxt.Characters.FirstOrDefault();
             if (characterBeurk == null)
             {
-                characterBeurk = new Character { CharacterName = "Beurk", };
+                characterBeurk = new Character { Name = "Beurk", };
                 var armor = new Armor("Armure en bronze") { };
                 characterBeurk.Armors.Add(armor);
                 characterBeurk.Gender = 1;

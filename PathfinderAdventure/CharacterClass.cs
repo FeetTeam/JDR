@@ -20,7 +20,7 @@ namespace PathfinderAdventure
         public string Name { get; set; }
         public string Description { get; set; }
         public List<ClassFeat>[] ClassFeats { get; set; }
-
+        public List<int> BaseAttackBonus { get; set; }
         public List<SavingThrows> SavingThrows { get; set; }
 
         public CharacterClass()

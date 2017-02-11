@@ -33,10 +33,15 @@ namespace PathfinderAdventure
         public bool Reach { get; set; }
         public bool Projectile { get; set; }
         public bool Thrown { get; set; }
+        public bool Composite { get; set; }
+        public bool IsMagic { get; set; }
+        public bool StrengthMalusSensitive { get; set; } /* Xbows */
         public bool DamageBludgeoning { get; set; }
         public bool DamagePiercing { get; set; }
         public bool DamageSlashing { get; set; }
         public IEnumerable Damages { get; set; }
+        public int MagicBonus { get; set; }
+        public int CompositeBonus { get; set; }
         public int CriticalFactor { get; set; }
         public List<int> CriticalNumbers { get; set; }
         public int RangeIncrement { get; set; }

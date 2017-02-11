@@ -35,7 +35,7 @@ namespace PathfinderAdventure.BasePathFinder
             using (var DbCtxt = new PathFinderDbContext())
             {
                 Console.WriteLine("GetCharacterPerso");
-                var res = DbCtxt.Characters.Include("CoinsQuantity").FirstOrDefault(x => x.CharacterName.StartsWith(name));
+                var res = DbCtxt.Characters.Include("CoinsQuantity").FirstOrDefault(x => x.Name.StartsWith(name));
                 return res;
             }
         }
@@ -46,11 +46,11 @@ namespace PathfinderAdventure.BasePathFinder
             {
                 Console.WriteLine("CreateCharacter");
 
-                var persoExistant = DbCtxt.Characters.Find(c.Id);
                 if (c.Id != 0)
                 {
                     //ok
                     Console.WriteLine("Update");
+                    //DbCtxt.Characters.Attach(persoExistant);
                     DbCtxt.Entry(c).State = EntityState.Modified;
                     DbCtxt.Entry(c.CoinsQuantity).State = EntityState.Modified;
                 }
