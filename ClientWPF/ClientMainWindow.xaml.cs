@@ -23,7 +23,7 @@ namespace ClientWPF
     /// </summary>
     public partial class ServerMainWindow : Window
     {
-        private IService1 channelChat;
+        private ICharacterService channelChat;
         private CharacterWs charTemp;
 
         public ServerMainWindow()
@@ -43,16 +43,11 @@ namespace ClientWPF
         private void buttonGet_Click(object sender, RoutedEventArgs e)
         {
             //genderTextBox.Text = channelChat.GetData(5);
-            using (var factoChat = new ChannelFactory<IService1>("cep"))
+            using (var factoChat = new ChannelFactory<ICharacterService>("cep"))
             {
                 channelChat = factoChat.CreateChannel();
-                //var fiche = channelChat.GetCharacterPersoWs("Beurk2");
-                //canvas1.DataContext = fiche;
-
-                //var ficheSuperficielle = channelChat.GetCharacters();
-                //var ab = channelChat.GetAbilities();
-
                 var characterByName = channelChat.GetCharacterPersoWs(nameTextBox.Text);
+
                 charTemp = new CharacterWs { CharacterPersoWs = characterByName };
                 canvas1.DataContext = charTemp.CharacterPersoWs;
             }
@@ -61,12 +56,15 @@ namespace ClientWPF
         private void buttonSet_Click(object sender, RoutedEventArgs e)
         {
             //genderTextBox.Text = channelChat.GetData(5);
-            using (var factoChat = new ChannelFactory<IService1>("cep"))
+            using (var factoChat = new ChannelFactory<ICharacterService>("cep"))
             {
                 channelChat = factoChat.CreateChannel();
-                //charTemp.CharacterPersoWs.CoinsQuantity.GoldCoins = 333;
-                //var nvCharact = new CharacterWs { CharacterPersoWs = new PathfinderAdventure.Character { Name = "bob", } };
                 channelChat.CreateCharacter(charTemp);
+
+                if (charTemp.CharacterPersoWs.Id == 0)
+                {
+                    channelChat.GetCharacterPersoWs(charTemp.CharacterPersoWs.CharacterName);
+                }
             }
         }
 

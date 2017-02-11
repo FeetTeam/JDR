@@ -12,13 +12,12 @@ namespace TestCodeFirst
     {
         private static void Main(string[] args)
         {
-            var dbctxt = new PathFinderDbContext();
             //dbctxt.Database.CreateIfNotExists();
             //InitDb(dbctxt);
             var rep = new AbilitiesSetRepository();
             var res = rep.GetAbilitiesSets();
 
-            var repCharact = new CharacterSetRepository(dbctxt);
+            var repCharact = new CharacterSetRepository();
             var res2 = repCharact.GetCharacterPerso("Beurk");
         }
 

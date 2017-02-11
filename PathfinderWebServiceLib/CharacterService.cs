@@ -12,7 +12,7 @@ namespace PathfinderWebServiceLib
     // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom de classe "Service1" à la fois dans le code et le fichier de configuration.
 
     [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single, ConcurrencyMode = ConcurrencyMode.Single)]
-    public class Service1 : IService1
+    public class CharacterService : ICharacterService
     {
         private object objetLock = new object();
 

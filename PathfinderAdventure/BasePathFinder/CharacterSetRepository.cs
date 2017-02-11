@@ -8,58 +8,59 @@ namespace PathfinderAdventure.BasePathFinder
 {
     public class CharacterSetRepository
     {
-        public PathFinderDbContext DbCtxt { get; set; }
-
         public CharacterSetRepository()
         {
         }
 
-        public CharacterSetRepository(PathFinderDbContext ctxt)
-        {
-            DbCtxt = ctxt;
-        }
-
         public Character GetFirstIdiot()
         {
-            Console.WriteLine("CreateCharacter");
-            return DbCtxt.Characters.Include("Abilities").Include("CoinsQuantity").First();
+            using (var DbCtxt = new PathFinderDbContext())
+            {
+                Console.WriteLine("CreateCharacter");
+                return DbCtxt.Characters.Include("Abilities").Include("CoinsQuantity").First();
+            }
         }
 
         public IEnumerable<Character> GetCharacters()
         {
-            Console.WriteLine("GetCharacters");
-            return DbCtxt.Characters.Include("Abilities").Include("CoinsQuantity").ToList();
+            using (var DbCtxt = new PathFinderDbContext())
+            {
+                Console.WriteLine("GetCharacters");
+                return DbCtxt.Characters.Include("Abilities").Include("CoinsQuantity").ToList();
+            }
         }
 
         public Character GetCharacterPerso(string name)
         {
-            Console.WriteLine("GetCharacterPerso");
-            //DbCtxt.Characters.Load();
-            var res = DbCtxt.Characters.Include("CoinsQuantity").FirstOrDefault(x => x.CharacterName.StartsWith(name));
-            return res;
+            using (var DbCtxt = new PathFinderDbContext())
+            {
+                Console.WriteLine("GetCharacterPerso");
+                var res = DbCtxt.Characters.Include("CoinsQuantity").FirstOrDefault(x => x.CharacterName.StartsWith(name));
+                return res;
+            }
         }
 
         public void CreateCharacter(Character c)
         {
-            Console.WriteLine("CreateCharacter");
-            DbCtxt = new PathFinderDbContext();
-            //var entityChanged = DbCtxt.ChangeTracker.Entries();
-
-            var persoExistant = DbCtxt.Entry(c);
-
-            if (persoExistant != null)
+            using (var DbCtxt = new PathFinderDbContext())
             {
-                Console.WriteLine("Update");
-                DbCtxt.Characters.Attach(c);
-                persoExistant.State = EntityState.Modified;
-                DbCtxt.Entry(persoExistant.Entity.CoinsQuantity).State = EntityState.Modified;
+                Console.WriteLine("CreateCharacter");
+
+                var persoExistant = DbCtxt.Characters.Find(c.Id);
+                if (c.Id != 0)
+                {
+                    //ok
+                    Console.WriteLine("Update");
+                    DbCtxt.Entry(c).State = EntityState.Modified;
+                    DbCtxt.Entry(c.CoinsQuantity).State = EntityState.Modified;
+                }
+                else
+                {
+                    Console.WriteLine("Create");
+                    DbCtxt.Characters.Add(c);
+                }
+                DbCtxt.SaveChanges();
             }
-            else
-            {
-                Console.WriteLine("Create");
-                DbCtxt.Characters.Add(c);
-            }
-            DbCtxt.SaveChanges();
         }
     }
 }

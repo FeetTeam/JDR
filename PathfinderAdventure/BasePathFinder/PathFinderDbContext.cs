@@ -22,7 +22,7 @@ namespace PathfinderAdventure.BasePathFinder
         //public DbSet<Adventure> Adventures { get; set; }
         //public DbSet<AdventureLevelList> AdventureLevelLists { get; set; }
         //public DbSet<Session> Sessions { get; set; }
-        //public DbSet<Character> CoinsQuantity { get; set; }
+        public DbSet<Coins> CoinsQuantity { get; set; }
 
         ////public DbSet<Armor> Armor { get; set; }
         public DbSet<Character> Characters { get; set; }

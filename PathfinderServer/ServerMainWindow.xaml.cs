@@ -22,7 +22,7 @@ namespace PathfinderServer
     /// </summary>
     public partial class MainWindow : Window
     {
-        private static Service1 service;
+        private static CharacterService service;
         private ServiceHost serviceHost;
 
         public MainWindow()
@@ -32,7 +32,7 @@ namespace PathfinderServer
 
             //dbctxt.Database.CreateIfNotExists();
 
-            service = new Service1();
+            service = new CharacterService();
             service.OnLog += Service_OnLog;
             btStart_Click(this, new RoutedEventArgs());
         }
@@ -50,7 +50,7 @@ namespace PathfinderServer
             serviceHost.Open();
 
             //Create a ChannelFactory and load the configuration setting
-            var channelFactory = new ChannelFactory<IService1>("cep");
+            var channelFactory = new ChannelFactory<ICharacterService>("cep");
             Console.WriteLine(channelFactory.Endpoint.Address);
             //var channel = channelFactory.CreateChannel();
         }
