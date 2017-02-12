@@ -14,8 +14,8 @@ namespace TestCodeFirst
         {
             //dbctxt.Database.CreateIfNotExists();
             //InitDb(dbctxt);
-            var rep = new AbilitiesSetRepository();
-            var res = rep.GetAbilitiesSets();
+            //var rep = new AbilitiesSetRepository();
+            //var res = rep.GetAbilitiesSets();
 
             var repCharact = new CharacterSetRepository();
             var res2 = repCharact.GetCharacterPerso("Beurk");

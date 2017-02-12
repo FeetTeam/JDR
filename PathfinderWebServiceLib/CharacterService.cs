@@ -51,9 +51,10 @@ namespace PathfinderWebServiceLib
 
         public List<Ability> GetAbilities()
         {
-            var repo = new AbilitiesSetRepository();
-            var res = repo.GetAbilities();
-            return res;
+            throw new Exception("A corriger");
+            //var repo = new AbilitiesSetRepository();
+            //var res = repo.GetAbilities();
+            //return res;
         }
 
         public Character GetCharacterPersoWs(string name)
@@ -67,6 +68,8 @@ namespace PathfinderWebServiceLib
         {
             var repo = new CharacterSetRepository();
             repo.CreateCharacter(c?.CharacterPersoWs);
+            //var repoAbilities = new AbilitiesSetRepository();
+            //repoAbilities.CreateAbilitySet(c.CharacterPersoWs.AbilitiesSet);
         }
     }
 

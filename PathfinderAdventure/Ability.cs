@@ -1,13 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
+
 /*
- * Created by SharpDevelop.
- * User: jerome
- * Date: 06/02/2017
- * Time: 09:58
- *
- * To change this template use Tools | Options | Coding | Edit Standard Headers.
- */
+* Created by SharpDevelop.
+* User: jerome
+* Date: 06/02/2017
+* Time: 09:58
+*
+* To change this template use Tools | Options | Coding | Edit Standard Headers.
+*/
 
 namespace PathfinderAdventure
 {
@@ -16,13 +18,22 @@ namespace PathfinderAdventure
     /// <summary>
     /// Description of Carac.
     /// </summary>
+    [DataContract]
     public class Ability
     {
+        [DataMember]
         public int Id { get; set; }
 
+        [DataMember]
         public string Name { get; set; }
+
+        [DataMember]
         public int Value { get; set; }
+
+        [DataMember]
         public int TmpValue { get; set; }
+
+        [DataMember]
         public int Modifying { get; set; }
 
         public Ability()
@@ -86,17 +97,17 @@ namespace PathfinderAdventure
 
         private int processBonus()
         {
-        	if(Value < 10 && Value % 2 == 1) return (Value - 10) / 2 - 1;
-        	else return (Value - 10) / 2;
+            if (Value < 10 && Value % 2 == 1) return (Value - 10) / 2 - 1;
+            else return (Value - 10) / 2;
         }
-        
-        public static int generateAbilitieScore()
-		{
-			int [] rollResult = new int[4];
-			DiceRoll diceRoll = new DiceRoll(new List<Dice> {DiceSet.D6, DiceSet.D6, DiceSet.D6, DiceSet.D6});
-			diceRoll.rollSeparately(rollResult);			
 
-			return rollResult.OrderByDescending(x => x).Take(3).Sum();
-		}
+        public static int generateAbilitieScore()
+        {
+            int[] rollResult = new int[4];
+            DiceRoll diceRoll = new DiceRoll(new List<Dice> { DiceSet.D6, DiceSet.D6, DiceSet.D6, DiceSet.D6 });
+            diceRoll.rollSeparately(rollResult);
+
+            return rollResult.OrderByDescending(x => x).Take(3).Sum();
+        }
     }
 }

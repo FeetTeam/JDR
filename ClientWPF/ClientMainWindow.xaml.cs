@@ -47,9 +47,11 @@ namespace ClientWPF
             {
                 channelChat = factoChat.CreateChannel();
                 var characterByName = channelChat.GetCharacterPersoWs(nameTextBox.Text);
-
+                //characterByName.Abilities.Charisma = new PathfinderAdventure.Ability { Name = "Cha" };
                 charTemp = new CharacterWs { CharacterPersoWs = characterByName };
                 canvas1.DataContext = charTemp.CharacterPersoWs;
+
+                wrapPanel1.DataContext = charTemp.CharacterPersoWs;
             }
         }
 
@@ -70,7 +72,7 @@ namespace ClientWPF
 
         private void btNew_Click(object sender, RoutedEventArgs e)
         {
-            charTemp = new CharacterWs { CharacterPersoWs = new PathfinderAdventure.Character() { Name = "{init}" } };
+            charTemp = new CharacterWs();
             canvas1.DataContext = charTemp.CharacterPersoWs;
         }
     }

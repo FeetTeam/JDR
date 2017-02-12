@@ -10,6 +10,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace PathfinderAdventure
 {
@@ -27,7 +28,7 @@ namespace PathfinderAdventure
         public List<RaceFeat> RaceFeats { get; set; }
         public IEnumerable<CharacterClass> Classes { get; set; }
         public List<ClassFeat> ClassFeats { get; set; }
-        public AbilitiesSet Abilities { get; set; }
+        public AbilitiesSet AbilitiesSet { get; set; }
         public SkillSet Skills { get; set; }
         public FeatsSet Feats { get; set; }
         public SavingThrows SavingThrows { get; set; }
@@ -73,7 +74,7 @@ namespace PathfinderAdventure
             List<int> meleeBonus = new List<int>();
             foreach (int BAB in BaseAttackBonus)
             {
-                meleeBonus.Add(BAB + Abilities.Strenght.Modifying);
+                meleeBonus.Add(BAB + AbilitiesSet.Strenght.Modifying);
             }
             return meleeBonus;
         }
@@ -93,9 +94,9 @@ namespace PathfinderAdventure
         {
             int realDexModifyingValue;
 
-            if (ActiveArmor.MaxDexBonus < Abilities.Dexterity.Modifying)
+            if (ActiveArmor.MaxDexBonus < AbilitiesSet.Dexterity.Modifying)
                 return ActiveArmor.MaxDexBonus;
-            else return Abilities.Dexterity.Modifying;
+            else return AbilitiesSet.Dexterity.Modifying;
         }
 
         private int computesInitBonus()

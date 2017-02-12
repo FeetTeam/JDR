@@ -7,16 +7,26 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 
+using System.Runtime.Serialization;
+
 namespace PathfinderAdventure
 {
     /// <summary>
     /// Description of Coins.
     /// </summary>
+    [DataContract]
     public class Coins
     {
+        [DataMember]
         public int Id { get; set; }
+
+        [DataMember]
         public int GoldCoins { get; set; }
+
+        [DataMember]
         public int SilverCoins { get; set; }
+
+        [DataMember]
         public int CopperCoins { get; set; }
 
         public Coins()

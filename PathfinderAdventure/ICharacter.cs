@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace PathfinderAdventure
 {
     public interface ICharacter
     {
-        AbilitiesSet Abilities { get; set; }
+        AbilitiesSet AbilitiesSet { get; set; }
         Armor ActiveArmor { get; set; }
         Armor ActiveShield { get; set; }
         Weapon ActiveWeapon { get; set; }

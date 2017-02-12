@@ -7,8 +7,22 @@
 -->
 <GenericObjectDataSource DisplayName="Character" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
    <Children>
+      <GenericObjectDataSource DisplayName="AbilitiesSet" Version="1.0">
+         <TypeInfo>PathfinderAdventure.AbilitiesSet, PathfinderAdventure, Version=1.0.6252.11212, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeUISetting>
+            <PropertyUISettings>
+               <PropertyUISetting Name="Character.Abilities">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="Détails" Type="Microsoft.VSDesigner.Data.DataForm.Windows.DetailView" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+            </PropertyUISettings>
+         </TypeUISetting>
+      </GenericObjectDataSource>
       <GenericObjectDataSource DisplayName="CoinsQuantity" Version="1.0">
-         <TypeInfo>PathfinderAdventure.Coins, PathfinderAdventure, Version=1.0.6249.39126, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeInfo>PathfinderAdventure.Coins, PathfinderAdventure, Version=1.0.6252.11212, Culture=neutral, PublicKeyToken=null</TypeInfo>
          <TypeUISetting>
             <PropertyUISettings>
                <PropertyUISetting Name="Character.CoinsQuantity">
@@ -22,7 +36,7 @@
          </TypeUISetting>
       </GenericObjectDataSource>
       <GenericObjectDataSource DisplayName="Strenght" Version="1.0">
-         <TypeInfo>PathfinderAdventure.Ability, PathfinderAdventure, Version=1.0.6249.39126, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeInfo>PathfinderAdventure.Ability, PathfinderAdventure, Version=1.0.6252.11212, Culture=neutral, PublicKeyToken=null</TypeInfo>
          <TypeUISetting>
             <PropertyUISettings>
                <PropertyUISetting Name="Character.Abilities.Charisma">
@@ -32,19 +46,51 @@
                      </ControlSetting>
                   </ControlSettings>
                </PropertyUISetting>
-               <PropertyUISetting Name="Name">
-                  <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows:WPF" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-                        <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-                     </ControlSetting></ControlSettings>
+               <PropertyUISetting Name="Character.Abilities.Constitution">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="Détails" Type="Microsoft.VSDesigner.Data.DataForm.Windows.DetailView" />
+                     </ControlSetting>
+                  </ControlSettings>
                </PropertyUISetting>
-               <PropertyUISetting Name="Value">
-                  <ControlSettings><ControlSetting ArtifactName="Microsoft:System.Windows:WPF" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
-                        <BindableControlInfo Name="TextBlock" Type="System.Windows.Controls.TextBlock" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
-                     </ControlSetting></ControlSettings>
+               <PropertyUISetting Name="Character.Abilities.Dexterity">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="Détails" Type="Microsoft.VSDesigner.Data.DataForm.Windows.DetailView" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="Name">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="TextBox" Type="System.Windows.Controls.TextBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="Character.AbilitiesSet.Charisma">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="Détails" Type="Microsoft.VSDesigner.Data.DataForm.Windows.DetailView" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="Character.AbilitiesSet.Constitution">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="Détails" Type="Microsoft.VSDesigner.Data.DataForm.Windows.DetailView" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="Character.AbilitiesSet.Dexterity">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="Détails" Type="Microsoft.VSDesigner.Data.DataForm.Windows.DetailView" />
+                     </ControlSetting>
+                  </ControlSettings>
                </PropertyUISetting>
             </PropertyUISettings>
          </TypeUISetting>
       </GenericObjectDataSource>
    </Children>
-   <TypeInfo>PathfinderAdventure.Character, PathfinderAdventure, Version=1.0.6249.39126, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>PathfinderAdventure.Character, PathfinderAdventure, Version=1.0.6252.11212, Culture=neutral, PublicKeyToken=null</TypeInfo>
 </GenericObjectDataSource>

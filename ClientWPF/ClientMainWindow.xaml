@@ -6,12 +6,12 @@
         xmlns:local="clr-namespace:ClientWPF"
         xmlns:PathfinderAdventure="clr-namespace:PathfinderAdventure;assembly=PathfinderAdventure" x:Class="ClientWPF.ServerMainWindow"
         mc:Ignorable="d"
-        Title="Client" Height="350" Width="525" Loaded="Window_Loaded">
+        Title="Client" Height="701.667" Width="1103" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="characterViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Character}, CreateList=True}" />
         <CollectionViewSource x:Key="coinsViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Coins}, CreateList=True}" />
     </Window.Resources>
-    <Canvas Name="canvas1" HorizontalAlignment="Left" Height="256" Margin="49,45,0,0" VerticalAlignment="Top" Width="406" DataContext="{StaticResource characterViewSource}">
+    <Canvas Name="canvas1" Margin="10,45,3,8.667" DataContext="{StaticResource characterViewSource}">
         <Grid x:Name="grid1"  HorizontalAlignment="Left" Canvas.Left="139" VerticalAlignment="Top" Canvas.Top="7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -58,7 +58,7 @@
             <TextBox x:Name="silverCoinsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding CoinsQuantity.SilverCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
         </Grid>
         <Button x:Name="btAdd" Content="New" Canvas.Left="109" Canvas.Top="-31" Width="75" Click="btNew_Click" />
-        <Grid x:Name="grid2" HorizontalAlignment="Left" Canvas.Left="28" Canvas.Top="17" VerticalAlignment="Top">
+        <Grid x:Name="grid2" HorizontalAlignment="Left" Canvas.Left="25" Canvas.Top="18" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -69,7 +69,7 @@
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
             <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
         </Grid>
-        <Grid x:Name="grid3" HorizontalAlignment="Left" Canvas.Left="41" Canvas.Top="86" VerticalAlignment="Top">
+        <Grid x:Name="grid3" HorizontalAlignment="Left" Canvas.Left="31" Canvas.Top="66" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -80,5 +80,76 @@
             <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
             <TextBox x:Name="genderTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
         </Grid>
+        <WrapPanel Name="wrapPanel1" Height="312" Canvas.Left="74" Canvas.Top="197" Width="834">
+            <Grid x:Name="grid6" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
+                <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Charisma.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
+                <TextBox x:Name="modifyingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Charisma.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
+                <TextBox x:Name="nameTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding AbilitiesSet.Charisma.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Tmp Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" />
+                <TextBox x:Name="tmpValueTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding AbilitiesSet.Charisma.TmpValue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
+                <TextBox x:Name="valueTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding AbilitiesSet.Charisma.Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+            </Grid>
+            <Grid x:Name="grid7" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
+                <TextBox x:Name="idTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Constitution.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
+                <TextBox x:Name="modifyingTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Constitution.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
+                <TextBox x:Name="nameTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding AbilitiesSet.Constitution.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Tmp Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" />
+                <TextBox x:Name="tmpValueTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding AbilitiesSet.Constitution.TmpValue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
+                <TextBox x:Name="valueTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding AbilitiesSet.Constitution.Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+            </Grid>
+            <Grid x:Name="grid8" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
+                <TextBox x:Name="idTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Dexterity.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
+                <TextBox x:Name="modifyingTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Dexterity.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
+                <TextBox x:Name="nameTextBox3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding AbilitiesSet.Dexterity.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Tmp Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" />
+                <TextBox x:Name="tmpValueTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding AbilitiesSet.Dexterity.TmpValue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <Label Content="Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
+                <TextBox x:Name="valueTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding AbilitiesSet.Dexterity.Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+            </Grid>
+        </WrapPanel>
     </Canvas>
 </Window>

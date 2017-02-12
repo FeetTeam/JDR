@@ -97,5 +97,11 @@ namespace PathfinderWebServiceLib
     {
         [DataMember]
         public Character CharacterPersoWs { get; set; }
+
+        public CharacterWs()
+        {
+            var newAbilities = new PathfinderAdventure.AbilitiesSet(true);
+            CharacterPersoWs = new PathfinderAdventure.Character() { Name = "{init}", AbilitiesSet = newAbilities };
+        }
     }
 }

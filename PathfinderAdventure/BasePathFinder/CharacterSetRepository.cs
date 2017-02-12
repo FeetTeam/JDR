@@ -17,7 +17,7 @@ namespace PathfinderAdventure.BasePathFinder
             using (var DbCtxt = new PathFinderDbContext())
             {
                 Console.WriteLine("CreateCharacter");
-                return DbCtxt.Characters.Include("Abilities").Include("CoinsQuantity").First();
+                return DbCtxt.Characters.First();
             }
         }
 
@@ -26,7 +26,7 @@ namespace PathfinderAdventure.BasePathFinder
             using (var DbCtxt = new PathFinderDbContext())
             {
                 Console.WriteLine("GetCharacters");
-                return DbCtxt.Characters.Include("Abilities").Include("CoinsQuantity").ToList();
+                return DbCtxt.Characters.Include("Abilities").Include("TaMere").Include("CoinsQuantity").ToList();
             }
         }
 
@@ -35,7 +35,15 @@ namespace PathfinderAdventure.BasePathFinder
             using (var DbCtxt = new PathFinderDbContext())
             {
                 Console.WriteLine("GetCharacterPerso");
-                var res = DbCtxt.Characters.Include("CoinsQuantity").FirstOrDefault(x => x.Name.StartsWith(name));
+                var res = DbCtxt.Characters.Include("CoinsQuantity")
+                                           .Include(x => x.AbilitiesSet)
+                                           .Include(x => x.AbilitiesSet.Charisma)
+                                           .Include(x => x.AbilitiesSet.Constitution)
+                                           .Include(x => x.AbilitiesSet.Dexterity)
+                                           .Include(x => x.AbilitiesSet.Intelligence)
+                                           .Include(x => x.AbilitiesSet.Strenght)
+                                           .Include(x => x.AbilitiesSet.Widsom)
+                                           .FirstOrDefault(x => x.Name.StartsWith(name));
                 return res;
             }
         }
@@ -50,13 +58,21 @@ namespace PathfinderAdventure.BasePathFinder
                 {
                     //ok
                     Console.WriteLine("Update");
-                    //DbCtxt.Characters.Attach(persoExistant);
                     DbCtxt.Entry(c).State = EntityState.Modified;
                     DbCtxt.Entry(c.CoinsQuantity).State = EntityState.Modified;
+                    DbCtxt.Entry<AbilitiesSet>(c.AbilitiesSet).State = EntityState.Modified;
+                    DbCtxt.Entry<Ability>(c.AbilitiesSet.Charisma).State = EntityState.Modified;
+                    DbCtxt.Entry<Ability>(c.AbilitiesSet.Constitution).State = EntityState.Modified;
+                    DbCtxt.Entry<Ability>(c.AbilitiesSet.Dexterity).State = EntityState.Modified;
+                    DbCtxt.Entry<Ability>(c.AbilitiesSet.Intelligence).State = EntityState.Modified;
+                    DbCtxt.Entry<Ability>(c.AbilitiesSet.Strenght).State = EntityState.Modified;
+                    DbCtxt.Entry<Ability>(c.AbilitiesSet.Widsom).State = EntityState.Modified;
                 }
                 else
                 {
                     Console.WriteLine("Create");
+                    c.AbilitiesSet = new AbilitiesSet(true);
+
                     DbCtxt.Characters.Add(c);
                 }
                 DbCtxt.SaveChanges();
