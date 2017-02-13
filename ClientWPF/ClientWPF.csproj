@@ -104,6 +104,10 @@
       <Project>{fc416b5a-3abc-42eb-bf04-d87d0fb6e296}</Project>
       <Name>PathfinderAdventure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PathfinderControlsLib\PathfinderControlsLib.csproj">
+      <Project>{089549fb-a529-4a2c-970c-885924cbea40}</Project>
+      <Name>PathfinderControlsLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PathfinderWebServiceLib\PathfinderWebServiceLib.csproj">
       <Project>{FC039750-6E4C-4960-B01B-1C0306141795}</Project>
       <Name>PathfinderWebServiceLib</Name>

@@ -4,12 +4,12 @@
 	Title="TestWPF"
 	Width="579"
 	Height="557">
-	<Grid
+    <Grid
 		RenderTransformOrigin="0.5,0.5"
 		Height="517"
 		Width="561"
 		HorizontalAlignment="Center">
-		<Button
+        <Button
 			Content="Générer"
 			x:Name="button1"
 			Click="button1_Click"
@@ -20,15 +20,15 @@
 			Margin="45,271,0,0"
 			Width="75"
 			Height="23" />
-		<TextBox
+        <TextBox
 			Grid.Column="0"
 			Grid.Row="0"
 			HorizontalAlignment="Left"
 			VerticalAlignment="Top"
 			Margin="66,31,0,0"
 			Width="120"
-			Height="20" />
-		<Label
+			Height="20" IsEnabled="{}" />
+        <Label
 			Content="Nom"
 			Grid.Column="0"
 			Grid.Row="0"
@@ -37,7 +37,7 @@
 			Margin="6,25,0,0"
 			Width="60"
 			Height="26" />
-		<GroupBox
+        <GroupBox
 			Header="Caractéristiques"
 			Grid.Column="0"
 			Grid.Row="0"
@@ -46,52 +46,52 @@
 			Margin="22,90,0,0"
 			Width="122"
 			Height="212">
-			<Canvas
+            <Canvas
 				Width="210"
 				Height="197">
-				<Label
+                <Label
 					Canvas.Left="7"
 					Content="FOR"
 					Height="25"
 					Width="35"
 					x:Name="lblAbiltStrength"
 					Canvas.Top="10" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					Canvas.Left="7"
 					x:Name="lblAbiltDexterity"
 					Content="DEX"
 					Canvas.Top="35" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					Canvas.Left="7"
 					x:Name="lblAbiltConstitution"
 					Content="CON"
 					Canvas.Top="60" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					Canvas.Left="7"
 					x:Name="lblAbiltIntelligence"
 					Content="INT"
 					Canvas.Top="85" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					Canvas.Left="7"
 					x:Name="lblAbiltWisdom"
 					Content="SAG"
 					Canvas.Top="110" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					Canvas.Left="7"
 					x:Name="lblAbiltCharisma"
 					Content="CHA"
 					Canvas.Top="135" />
-				<TextBox
+                <TextBox
 					Canvas.Left="53"
 					Height="25"
 					Text="12"
@@ -102,7 +102,7 @@
 					Width="25"
 					Canvas.Top="10"
 					x:Name="txtAbiltStrength" />
-				<TextBox
+                <TextBox
 					Canvas.Left="53"
 					Height="25"
 					Text="12"
@@ -111,7 +111,7 @@
 					Width="25"
 					Canvas.Top="35"
 					x:Name="txtAbiltDexterity" />
-				<TextBox
+                <TextBox
 					Canvas.Left="53"
 					Height="25"
 					Text="12"
@@ -120,7 +120,7 @@
 					Width="25"
 					Canvas.Top="60"
 					x:Name="txtAbiltConstitution" />
-				<TextBox
+                <TextBox
 					Canvas.Left="53"
 					Height="25"
 					Text="12"
@@ -129,7 +129,7 @@
 					Width="25"
 					Canvas.Top="85"
 					x:Name="txtAbiltIntelligence" />
-				<TextBox
+                <TextBox
 					Canvas.Left="53"
 					Height="25"
 					Text="12"
@@ -138,7 +138,7 @@
 					Width="25"
 					Canvas.Top="110"
 					x:Name="txtAbiltWisdom" />
-				<TextBox
+                <TextBox
 					Canvas.Left="53"
 					Height="25"
 					Text="12"
@@ -147,51 +147,51 @@
 					Width="25"
 					Canvas.Top="135"
 					x:Name="txtAbiltCharisma" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					x:Name="lblModStrength"
 					Canvas.Top="10"
 					Canvas.Left="82"
 					Content="0" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					x:Name="lblModDexterity"
 					Canvas.Top="35"
 					Canvas.Left="82"
 					Content="0" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					x:Name="lblModConstitution"
 					Canvas.Top="60"
 					Canvas.Left="82"
 					Content="0" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					x:Name="lblModIntelligence"
 					Canvas.Top="85"
 					Canvas.Left="82"
 					Content="0" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					x:Name="lblModWisdom"
 					Canvas.Top="110"
 					Canvas.Left="82"
 					Content="0" />
-				<Label
+                <Label
 					Height="25"
 					Width="35"
 					x:Name="lblModCharisma"
 					Canvas.Top="135"
 					Canvas.Left="82"
 					Content="0" />
-			</Canvas>
-		</GroupBox>
-		<Label
+            </Canvas>
+        </GroupBox>
+        <Label
 			Grid.Column="0"
 			Grid.Row="0"
 			HorizontalAlignment="Left"
@@ -201,7 +201,7 @@
 			Height="26"
 			Content="Race"
 			x:Name="lblRace" />
-		<TextBox
+        <TextBox
 			Grid.Column="0"
 			Grid.Row="0"
 			HorizontalAlignment="Left"
@@ -210,5 +210,5 @@
 			Width="120"
 			Height="20"
 			x:Name="txtRace" />
-	</Grid>
+    </Grid>
 </Window>

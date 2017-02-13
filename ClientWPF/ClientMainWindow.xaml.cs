@@ -52,6 +52,7 @@ namespace ClientWPF
                 canvas1.DataContext = charTemp.CharacterPersoWs;
 
                 wrapPanel1.DataContext = charTemp.CharacterPersoWs;
+                carac.DataContext = charTemp.CharacterPersoWs;
             }
         }
 

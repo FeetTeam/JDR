@@ -43,6 +43,7 @@ namespace PathfinderAdventure.BasePathFinder
                                            .Include(x => x.AbilitiesSet.Intelligence)
                                            .Include(x => x.AbilitiesSet.Strenght)
                                            .Include(x => x.AbilitiesSet.Widsom)
+                                           .Include(w => w.Race)
                                            .FirstOrDefault(x => x.Name.StartsWith(name));
                 return res;
             }
@@ -77,6 +78,11 @@ namespace PathfinderAdventure.BasePathFinder
                 }
                 DbCtxt.SaveChanges();
             }
+        }
+
+        public void InitDB()
+        {
+            var character = new Character() { };
         }
     }
 }

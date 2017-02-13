@@ -4,14 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientWPF"
-        xmlns:PathfinderAdventure="clr-namespace:PathfinderAdventure;assembly=PathfinderAdventure" x:Class="ClientWPF.ServerMainWindow"
+        xmlns:PathfinderAdventure="clr-namespace:PathfinderAdventure;assembly=PathfinderAdventure" xmlns:PathfinderControlsLib="clr-namespace:PathfinderControlsLib;assembly=PathfinderControlsLib" x:Class="ClientWPF.ServerMainWindow"
         mc:Ignorable="d"
+
         Title="Client" Height="701.667" Width="1103" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="characterViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Character}, CreateList=True}" />
         <CollectionViewSource x:Key="coinsViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Coins}, CreateList=True}" />
     </Window.Resources>
-    <Canvas Name="canvas1" Margin="10,45,3,8.667" DataContext="{StaticResource characterViewSource}">
+    <Canvas x:Name="canvas1" Margin="10,45,3,8.667" DataContext="{StaticResource characterViewSource}">
         <Grid x:Name="grid1"  HorizontalAlignment="Left" Canvas.Left="139" VerticalAlignment="Top" Canvas.Top="7">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
@@ -80,7 +81,7 @@
             <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
             <TextBox x:Name="genderTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
         </Grid>
-        <WrapPanel Name="wrapPanel1" Height="312" Canvas.Left="74" Canvas.Top="197" Width="834">
+        <WrapPanel x:Name="wrapPanel1" Height="401" Canvas.Left="74" Canvas.Top="197" Width="834">
             <Grid x:Name="grid6" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -150,6 +151,7 @@
                 <Label Content="Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
                 <TextBox x:Name="valueTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding AbilitiesSet.Dexterity.Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
             </Grid>
+            <PathfinderControlsLib:CaracteristiquesDetailsView Name="carac" />
         </WrapPanel>
     </Canvas>
 </Window>
