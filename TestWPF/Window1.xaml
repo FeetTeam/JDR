@@ -27,7 +27,7 @@
 			VerticalAlignment="Top"
 			Margin="66,31,0,0"
 			Width="120"
-			Height="20" IsEnabled="{}" />
+			Height="20" />
         <Label
 			Content="Nom"
 			Grid.Column="0"
