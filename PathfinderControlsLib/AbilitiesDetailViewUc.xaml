@@ -1,0 +1,19 @@
+﻿<UserControl
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:PathfinderControlsLib"
+             xmlns:PathfinderAdventure="clr-namespace:PathfinderAdventure;assembly=PathfinderAdventure" x:Class="PathfinderControlsLib.AbilitiesDetailViewUc"
+             mc:Ignorable="d" Loaded="UserControl_Loaded" Height="50.16" Width="204.34">
+    <UserControl.Resources>
+        <CollectionViewSource x:Key="abilityViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Ability}, CreateList=True}" />
+    </UserControl.Resources>
+    <WrapPanel Height="33" Margin="4,6,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200">
+
+        <Label x:Name="nameLabel" Content="{Binding Name}" Grid.Column="1"  HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" Height="30" Width="63" />
+        <TextBox x:Name="valueTextBox" HorizontalAlignment="Left" Height="23"   Text="{Binding Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="40" />
+        <TextBox x:Name="tmpValueTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding TmpValue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="41" />
+        <TextBox x:Name="modifyingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="36" />
+    </WrapPanel>
+</UserControl>
