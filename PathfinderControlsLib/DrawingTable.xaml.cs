@@ -46,6 +46,7 @@ namespace PathfinderControlsLib
 
         private void DessinCanvas_MouseMove(object sender, MouseEventArgs e)
         {
+            if (SelectedEllipse == null) return;
             if (captureEnCours && e.LeftButton == MouseButtonState.Pressed && e.Source is Ellipse)
             {
                 var position = e.GetPosition(DessinCanvas);
@@ -63,6 +64,10 @@ namespace PathfinderControlsLib
         private void DessinCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
             captureEnCours = false;
+            if (SelectedEllipse == null)
+            {
+                return;
+            }
             Matrix matrixAssociation = SelectedEllipse.RenderTransform.Value;
 
             var position = e.GetPosition(DessinCanvas);
@@ -90,13 +95,11 @@ namespace PathfinderControlsLib
             for (int col = 0; col < DessinCanvas.ActualWidth / TAILLE_CASE; col++)
             {
                 var x = col * TAILLE_CASE;
-
                 DessinCanvas.Children.Add(new Line { Stroke = Brushes.Black, X1 = x, X2 = x, Y1 = 0, Y2 = DessinCanvas.ActualHeight });
             }
             for (int ligne = 0; ligne < DessinCanvas.ActualHeight / TAILLE_CASE; ligne++)
             {
                 var y = ligne * TAILLE_CASE;
-
                 DessinCanvas.Children.Add(new Line { Stroke = Brushes.Black, X1 = 0, X2 = DessinCanvas.ActualWidth, Y1 = y, Y2 = y });
             }
         }
