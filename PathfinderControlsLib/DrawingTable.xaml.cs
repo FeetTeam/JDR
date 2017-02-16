@@ -27,6 +27,8 @@ namespace PathfinderControlsLib
         public Ellipse SelectedEllipse { get; set; }
         public Point Origine { get; set; }
         private bool captureEnCours;
+        private bool translationEnCours;
+        private Point origineGlissement;
 
         public DrawingTable()
         {
@@ -42,45 +44,84 @@ namespace PathfinderControlsLib
             {
                 captureEnCours = true;
             }
+            else if (e.Source == DessinCanvas)
+            {
+                translationEnCours = true;
+                origineGlissement = e.GetPosition(DessinCanvas);
+            }
         }
 
         private void DessinCanvas_MouseMove(object sender, MouseEventArgs e)
         {
-            if (SelectedEllipse == null) return;
-            if (captureEnCours && e.LeftButton == MouseButtonState.Pressed && e.Source is Ellipse)
+            if (SelectedEllipse != null)
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    var position = e.GetPosition(DessinCanvas);
+
+                    if (captureEnCours)
+                    {
+                        //Matrix matrixAssociation = (SelectedEllipse.RenderTransform as MatrixTransform).Matrix;
+                        Matrix matrixEllipse = SelectedEllipse.RenderTransform.Value;
+
+                        if (position.X - TAILLE_CASE / 2 > 0 && position.Y - TAILLE_CASE / 2 > 0
+                            && position.X + TAILLE_CASE / 2 < ActualWidth
+                            && position.Y + TAILLE_CASE / 2 < ActualHeight)
+                        {
+                            matrixEllipse.OffsetX = position.X - TAILLE_CASE / 2;
+                            matrixEllipse.OffsetY = position.Y - TAILLE_CASE / 2;
+                            SelectedEllipse.RenderTransform = new MatrixTransform(matrixEllipse);
+                        }
+                    }
+                }
+            }
+            if (translationEnCours)
             {
                 var position = e.GetPosition(DessinCanvas);
-                DessinCanvas.ClipToBounds = true;
-
-                // Matrix matrixAssociation = (SelectedEllipse.RenderTransform as MatrixTransform).Matrix;
-                Matrix matrixAssociation = SelectedEllipse.RenderTransform.Value;
-
-                matrixAssociation.OffsetX = position.X - TAILLE_CASE / 2;
-                matrixAssociation.OffsetY = position.Y - TAILLE_CASE / 2;
-                SelectedEllipse.RenderTransform = new MatrixTransform(matrixAssociation);
+                Matrix matrixDessin = DessinCanvas.RenderTransform.Value;
+                var deltax = position.X - origineGlissement.X;
+                var deltay = position.Y - origineGlissement.Y;
+                matrixDessin.Translate(deltax, deltay);
+                DessinCanvas.RenderTransform = new MatrixTransform(matrixDessin);
             }
         }
 
         private void DessinCanvas_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            captureEnCours = false;
-            if (SelectedEllipse == null)
+            if (SelectedEllipse != null)
             {
-                return;
-            }
-            Matrix matrixAssociation = SelectedEllipse.RenderTransform.Value;
+                captureEnCours = false;
+                Matrix matrixEllipse = SelectedEllipse.RenderTransform.Value;
+                var position = e.GetPosition(DessinCanvas);
 
-            var position = e.GetPosition(DessinCanvas);
-            var resteX = position.X % TAILLE_CASE;
-            var resteY = position.Y % TAILLE_CASE;
-            matrixAssociation.OffsetX = position.X - resteX;
-            matrixAssociation.OffsetY = position.Y - resteY;
-            SelectedEllipse.RenderTransform = new MatrixTransform(matrixAssociation);
+                Aligner(position, ref matrixEllipse);
+                SelectedEllipse.RenderTransform = new MatrixTransform(matrixEllipse);
+            }
+            else
+            {
+                translationEnCours = false;
+            }
         }
 
         private void DessinCanvas_MouseLeave(object sender, MouseEventArgs e)
         {
-            captureEnCours = false;
+            if (!captureEnCours) return;
+            if (SelectedEllipse == null) return;
+
+            var ptSouris = e.GetPosition(DessinCanvas);
+            Matrix matrixEllipse = SelectedEllipse.RenderTransform.Value;
+
+            if (ptSouris.X > DessinCanvas.ActualWidth)
+            {
+                ptSouris.Offset(-TAILLE_CASE, 0);
+            }
+            if (ptSouris.Y > DessinCanvas.ActualHeight)
+            {
+                ptSouris.Offset(0, -TAILLE_CASE);
+            }
+
+            Aligner(ptSouris, ref matrixEllipse);
+            SelectedEllipse.RenderTransform = new MatrixTransform(matrixEllipse);
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
@@ -88,6 +129,25 @@ namespace PathfinderControlsLib
             SelectedEllipse = new Ellipse { Width = TAILLE_CASE, Height = TAILLE_CASE, Fill = Brushes.Red };
             DessinCanvas.Children.Add(SelectedEllipse);
             DessinerCases();
+            DessinCanvas.ClipToBounds = true;
+        }
+
+        public void Aligner(Point p, ref Matrix mSrc)
+        {
+            var resteX = p.X % TAILLE_CASE;
+            var resteY = p.Y % TAILLE_CASE;
+
+            mSrc.OffsetX = p.X - resteX;
+            mSrc.OffsetY = p.Y - resteY;
+        }
+
+        public void Aligner(Point pSouris, Rect rectContainer, ref Point ptInContainer)
+        {
+            ptInContainer = pSouris;
+            if (pSouris.X < rectContainer.X) ptInContainer.X = 0;
+            if (pSouris.X > rectContainer.Width) ptInContainer.X = rectContainer.Width;
+            if (pSouris.Y < rectContainer.Y) ptInContainer.X = 0;
+            if (pSouris.X > rectContainer.Height) ptInContainer.Y = rectContainer.Height - TAILLE_CASE;
         }
 
         public void DessinerCases()
@@ -95,13 +155,23 @@ namespace PathfinderControlsLib
             for (int col = 0; col < DessinCanvas.ActualWidth / TAILLE_CASE; col++)
             {
                 var x = col * TAILLE_CASE;
-                DessinCanvas.Children.Add(new Line { Stroke = Brushes.Black, X1 = x, X2 = x, Y1 = 0, Y2 = DessinCanvas.ActualHeight });
+                DessinCanvas.Children.Add(new Line { Stroke = Brushes.Black, X1 = x, X2 = x, Y1 = 0, Y2 = DessinCanvas.ActualHeight, Opacity = 0.50 });
             }
             for (int ligne = 0; ligne < DessinCanvas.ActualHeight / TAILLE_CASE; ligne++)
             {
                 var y = ligne * TAILLE_CASE;
                 DessinCanvas.Children.Add(new Line { Stroke = Brushes.Black, X1 = 0, X2 = DessinCanvas.ActualWidth, Y1 = y, Y2 = y });
             }
+        }
+
+        private void DessinCanvas_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            var matrice = DessinCanvas.RenderTransform.Value;
+            double valeurZoom = 0;
+            double delta = e.Delta;
+            valeurZoom = 1 + delta / 1000d;
+            matrice.Scale(valeurZoom, valeurZoom);
+            DessinCanvas.RenderTransform = new MatrixTransform(matrice);
         }
     }
 }

@@ -6,6 +6,6 @@
              xmlns:local="clr-namespace:PathfinderControlsLib"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
-    <Canvas Name="DessinCanvas" Background="AliceBlue" MouseDown="DessinCanvas_MouseDown" MouseMove="DessinCanvas_MouseMove" MouseUp="DessinCanvas_MouseUp" MouseLeave="DessinCanvas_MouseLeave">
+    <Canvas Name="DessinCanvas" Background="AliceBlue" MouseDown="DessinCanvas_MouseDown" MouseMove="DessinCanvas_MouseMove" MouseUp="DessinCanvas_MouseUp" MouseLeave="DessinCanvas_MouseLeave" MouseWheel="DessinCanvas_MouseWheel">
     </Canvas>
 </UserControl>

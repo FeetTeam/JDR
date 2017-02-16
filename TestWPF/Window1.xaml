@@ -210,6 +210,7 @@
 			Width="120"
 			Height="20"
 			x:Name="txtRace" />
-        <PathfinderControlsLib:DrawingTable HorizontalAlignment="Left" Height="345" Margin="265,90,0,0" VerticalAlignment="Top" Width="501" />
+
+        <PathfinderControlsLib:DrawingTable HorizontalAlignment="Left" Height="380" Margin="264,50,0,0" VerticalAlignment="Top" Width="501" />
     </Grid>
 </Window>
