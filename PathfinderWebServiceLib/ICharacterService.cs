@@ -27,6 +27,13 @@ namespace PathfinderWebServiceLib
 
         [OperationContract]
         void CreateCharacter(CharacterWs c);
+
+        /// <summary>
+        /// Update la liste des caracteres persos
+        /// </summary>
+        /// <param name="lPerso"></param>
+        [OperationContract]
+        void UpdateCharacterPersoList(List<Character> lPerso);
     }
 
     // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.

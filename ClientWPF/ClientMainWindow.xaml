@@ -41,7 +41,7 @@
         </Grid>
         <Button x:Name="button" Content="Get" Canvas.Left="189" Canvas.Top="-31" Width="75" Click="buttonGet_Click" />
         <Button x:Name="button1" Content="Set" Canvas.Left="269" Canvas.Top="-31" Width="75" Click="buttonSet_Click" />
-        <Grid x:Name="grid5" HorizontalAlignment="Left" Canvas.Left="244" Canvas.Top="10" VerticalAlignment="Top" Width="230">
+        <Grid x:Name="grid5" HorizontalAlignment="Left" Canvas.Left="349" Canvas.Top="196" VerticalAlignment="Top" Width="230">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -59,7 +59,7 @@
             <TextBox x:Name="silverCoinsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding CoinsQuantity.SilverCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
         </Grid>
         <Button x:Name="btAdd" Content="New" Canvas.Left="109" Canvas.Top="-31" Width="75" Click="btNew_Click" />
-        <Grid x:Name="grid2" HorizontalAlignment="Left" Canvas.Left="25" Canvas.Top="18" VerticalAlignment="Top">
+        <Grid x:Name="grid2" HorizontalAlignment="Left" Canvas.Left="95" Canvas.Top="206" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -70,7 +70,7 @@
             <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
             <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
         </Grid>
-        <Grid x:Name="grid3" HorizontalAlignment="Left" Canvas.Left="31" Canvas.Top="66" VerticalAlignment="Top">
+        <Grid x:Name="grid3" HorizontalAlignment="Left" Canvas.Left="87" Canvas.Top="254" VerticalAlignment="Top">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
@@ -81,7 +81,7 @@
             <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
             <TextBox x:Name="genderTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
         </Grid>
-        <WrapPanel x:Name="wrapPanel1" Height="401" Canvas.Left="74" Canvas.Top="197" Width="834">
+        <WrapPanel x:Name="wrapPanel1" Height="295" Canvas.Left="74" Canvas.Top="303" Width="834">
             <Grid x:Name="grid6" HorizontalAlignment="Left" VerticalAlignment="Top">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
@@ -95,7 +95,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-                <TextBox x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Charisma.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <TextBox x:Name="idTextBox" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Charisma.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
                 <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
                 <TextBox x:Name="modifyingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Charisma.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
                 <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
@@ -118,7 +118,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-                <TextBox x:Name="idTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Constitution.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <TextBox x:Name="idTextBox1" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Constitution.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
                 <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
                 <TextBox x:Name="modifyingTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Constitution.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
                 <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
@@ -141,7 +141,7 @@
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-                <TextBox x:Name="idTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Dexterity.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+                <TextBox x:Name="idTextBox2" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Dexterity.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
                 <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
                 <TextBox x:Name="modifyingTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Dexterity.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
                 <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
@@ -153,5 +153,6 @@
             </Grid>
             <PathfinderControlsLib:CaracteristiquesDetailsView Name="carac" />
         </WrapPanel>
+        <DataGrid x:Name="dataGrid" Canvas.Left="109" Canvas.Top="10" Height="152" Width="862" />
     </Canvas>
 </Window>

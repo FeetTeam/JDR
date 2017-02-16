@@ -71,6 +71,10 @@ namespace PathfinderWebServiceLib
             //var repoAbilities = new AbilitiesSetRepository();
             //repoAbilities.CreateAbilitySet(c.CharacterPersoWs.AbilitiesSet);
         }
+
+        public void UpdateCharacterPersoList(List<Character> lPerso)
+        {
+        }
     }
 
     public class LogEventArgs : EventArgs

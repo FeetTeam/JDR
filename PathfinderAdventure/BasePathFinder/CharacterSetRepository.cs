@@ -26,7 +26,16 @@ namespace PathfinderAdventure.BasePathFinder
             using (var DbCtxt = new PathFinderDbContext())
             {
                 Console.WriteLine("GetCharacters");
-                return DbCtxt.Characters.Include("Abilities").Include("TaMere").Include("CoinsQuantity").ToList();
+                return DbCtxt.Characters.Include("AbilitiesSet")
+                                        .Include("CoinsQuantity")
+                                        .ToList();
+            }
+        }
+
+        public void UpdateCharacters(IEnumerable<Character> characList)
+        {
+            using (var dbCtxt = new PathFinderDbContext())
+            {
             }
         }
 

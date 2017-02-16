@@ -1,7 +1,9 @@
-﻿using PathfinderAdventure.BasePathFinder;
+﻿using PathfinderAdventure;
+using PathfinderAdventure.BasePathFinder;
 using PathfinderWebServiceLib;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.ServiceModel;
 using System.Text;
@@ -25,19 +27,22 @@ namespace ClientWPF
     {
         private ICharacterService channelChat;
         private CharacterWs charTemp;
+        private List<Character> charactersModifiedList;
+        private CollectionViewSource characterViewSource;
 
         public ServerMainWindow()
         {
             InitializeComponent();
+
+            charactersModifiedList = new List<Character>();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            System.Windows.Data.CollectionViewSource characterViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("characterViewSource")));
-            // Charger les données en définissant la propriété CollectionViewSource.Source :
-            // characterViewSource.Source = [source de données générique]
-            System.Windows.Data.CollectionViewSource coinsViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("coinsViewSource")));
-            // Charger les données en définissant la propriété CollectionViewSource.Source :
+            characterViewSource = new CollectionViewSource();
+
+            //CollectionViewSource characterViewSource = ((CollectionViewSource)(this.FindResource("characterViewSource")));
+            CollectionViewSource coinsViewSource = ((CollectionViewSource)(this.FindResource("coinsViewSource")));
         }
 
         private void buttonGet_Click(object sender, RoutedEventArgs e)
@@ -53,7 +58,17 @@ namespace ClientWPF
 
                 wrapPanel1.DataContext = charTemp.CharacterPersoWs;
                 carac.DataContext = charTemp.CharacterPersoWs;
+
+                characterViewSource.Source = channelChat.GetCharacters();
+
+                dataGrid.ItemsSource = characterViewSource.View;
+                dataGrid.SelectionChanged += DataGrid_SelectionChanged;
             }
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            carac.DataContext = channelChat.GetCharacters().Where(x => x.Id == (dataGrid.SelectedItem as Character).Id);
         }
 
         private void buttonSet_Click(object sender, RoutedEventArgs e)
@@ -75,6 +90,15 @@ namespace ClientWPF
         {
             charTemp = new CharacterWs();
             canvas1.DataContext = charTemp.CharacterPersoWs;
+        }
+
+        private void characterDataGrid_RowEditEnding(object sender, DataGridRowEditEndingEventArgs e)
+        {
+        }
+
+        private void characterDataGrid_SourceUpdated(object sender, DataTransferEventArgs e)
+        {
+            this.charactersModifiedList.Add(BindingOperations.GetBindingExpression(e.TargetObject, e.Property).DataItem as Character);
         }
     }
 }
