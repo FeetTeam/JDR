@@ -13,7 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using static PathfinderControlsLib.GrilleEventArg;
+using PathfinderControlsLib;
 
 namespace PathfinderControlsLib
 {
@@ -118,7 +118,8 @@ namespace PathfinderControlsLib
                 Aligner(position, ref matrixEllipse);
                 Pawn.RenderTransform = new MatrixTransform(matrixEllipse);
                 var coord = PointToPosition(position);
-                OnGridModified?.Invoke(this, new GrilleEventArg { Colonne = coord.X, Ligne = coord.Y });
+                if(OnGridModified != null) OnGridModified.Invoke(this, new GrilleEventArg { Colonne = coord.X, Ligne = coord.Y });
+                //OnGridModified?.Invoke(this, new GrilleEventArg { Colonne = coord.X, Ligne = coord.Y });
             }
             else
             {
@@ -204,13 +205,13 @@ namespace PathfinderControlsLib
 
     public class GrilleEventArg : EventArgs
     {
-        public class Cooordonnées
-        {
-            public int X { get; set; }
-            public int Y { get; set; }
-        }
-
         public int Ligne { get; set; }
         public int Colonne { get; set; }
+    }
+    
+    public class Cooordonnées
+    {
+            public int X { get; set; }
+            public int Y { get; set; }
     }
 }

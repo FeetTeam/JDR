@@ -36,7 +36,8 @@ namespace PathfinderWebServiceLib
 
         public string GetData(int value)
         {
-            onLog?.Invoke(this, new LogEventArgs { Message = value.ToString() });
+        	if(onLog != null) onLog.Invoke(this, new LogEventArgs { Message = value.ToString() });
+            //onLog?.Invoke(this, new LogEventArgs { Message = value.ToString() });
             return string.Format("You entered: {0}", value);
         }
 
@@ -65,7 +66,8 @@ namespace PathfinderWebServiceLib
         public void CreateCharacter(CharacterWs c)
         {
             var repo = new CharacterSetRepository();
-            repo.CreateCharacter(c?.CharacterPersoWs);
+            if(c != null) repo.CreateCharacter(c.CharacterPersoWs);
+            //repo.CreateCharacter(c?.CharacterPersoWs);
             //var repoAbilities = new AbilitiesSetRepository();
             //repoAbilities.CreateAbilitySet(c.CharacterPersoWs.AbilitiesSet);
         }

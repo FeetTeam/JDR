@@ -55,7 +55,8 @@ namespace PathfinderControlsLib
             if (character != null)
             {
                 this.nameTextBlock.Text = character.Name;
-                this.nameTextBlock1.Text = character?.Race?.Name;
+                if(character.Race != null) this.nameTextBlock1.Text = character.Race.Name;
+                	//this.nameTextBlock1.Text = character?.Race?.Name;
                 this.currentHealthPointTextBlock.Text = character.Health.FirstOrDefault().CurrentHealthPoint.ToString();
             }
         }
