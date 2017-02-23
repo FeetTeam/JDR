@@ -41,6 +41,8 @@ namespace PathfinderControlsLib
             {
                 this.DataContextChanged += CharacterPawn_DataContextChanged;
             }
+            //Image1.Source = new BitmapImage(new Uri("img/semi_orc.jpg"));
+            
         }
 
         private void CharacterPawn_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)

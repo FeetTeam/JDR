@@ -35,6 +35,12 @@ namespace PathfinderControlsLib
             PV = 10;
             Nom = "Nom";
             DataContextChanged += PawnTooltip_DataContextChanged;
+            try{
+            	Avatar = System.Drawing.Image.FromFile("img/semi_orc.jpg");
+            }
+            catch (Exception excp) {
+            	MessageBox.Show("Impossible de charger l'icone: "+excp.Message);
+            }
         }
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)

@@ -129,6 +129,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="img\semi_orc.jpg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\PathfinderAdventure.AbilitiesSet.datasource" />
     <None Include="Properties\DataSources\PathfinderAdventure.Ability.datasource" />
@@ -144,6 +147,9 @@
       <Project>{fc416b5a-3abc-42eb-bf04-d87d0fb6e296}</Project>
       <Name>PathfinderAdventure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="img" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
