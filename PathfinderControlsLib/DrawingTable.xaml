@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:PathfinderControlsLib"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300" Loaded="UserControl_Loaded">
-    <Canvas Name="DessinCanvas" Background="AliceBlue" MouseDown="DessinCanvas_MouseDown" MouseMove="DessinCanvas_MouseMove" MouseUp="DessinCanvas_MouseUp" MouseLeave="DessinCanvas_MouseLeave" MouseWheel="DessinCanvas_MouseWheel">
-    </Canvas>
+    <Grid>
+        <StackPanel Name="ListePersos" Background="Red" Width="21" HorizontalAlignment="Left" Orientation="Vertical" />
+        <Canvas Name="DessinCanvas" Background="AliceBlue" MouseDown="DessinCanvas_MouseDown" MouseMove="DessinCanvas_MouseMove" MouseUp="DessinCanvas_MouseUp" MouseLeave="DessinCanvas_MouseLeave" MouseWheel="DessinCanvas_MouseWheel" Margin="26,0,0,0" />
+    </Grid>
 </UserControl>

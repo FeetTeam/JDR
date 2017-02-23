@@ -10,13 +10,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Runtime.Serialization;
+using System.ServiceModel;
 
 namespace PathfinderAdventure
 {
     /// <summary>
     /// Description of Character.
     /// </summary>
+
     public class Character : ICharacter
     {
         /* From Base */
@@ -43,13 +49,29 @@ namespace PathfinderAdventure
         public Coins CoinsQuantity { get; set; }
         public List<CharacterHealth> Health { get; set; }
         public Character AnimalCompanion { get; set; }
+        public Player CharacterPlayer { get; set; }
 
         /* Computed on Load */
+
+        [NotMapped]
         public int ArmorClass { get; set; }
+
+        [NotMapped]
         public int DexModifyingWithArmor { get; set; }
+
+        [NotMapped]
         public List<int> MeleeAttackBonus { get; set; }
+
+        [NotMapped]
         public List<int> RangeAttackBonus { get; set; }
+
+        [NotMapped]
         public int InitiativeBonus { get; set; }
+
+        // [NotMapped]
+        // public Bitmap Avatar { get; set; }
+
+        public byte[] BytesAvatar { get; set; }
 
         public Character()
         {
@@ -103,6 +125,23 @@ namespace PathfinderAdventure
         {
             return DexModifyingWithArmor;
         }
+
+        public Bitmap BytesToAvatar(byte[] src)
+        {
+            using (var streamReader = new MemoryStream(src))
+            {
+                return (Bitmap)Image.FromStream(streamReader);
+            }
+        }
+
+        //public void AvatarToBytes(Image dst)
+        //{
+        //    using (var streamWriter = new MemoryStream())
+        //    {
+        //        Avatar.Save(streamWriter, ImageFormat.Png);
+        //        BytesAvatar = streamWriter.ToArray();
+        //    }
+        //}
 
         public override string ToString()
         {

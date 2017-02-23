@@ -20,6 +20,7 @@ namespace PathfinderAdventure
 
         public enum ArmorMaterial { METAL, NON_METAL };
 
+        public int Id { get; set; }
         public ArmorType ArmorTypeProperty { get; set; }
         public ArmorStyle StyleProperty { get; set; }
         public ArmorMaterial Material { get; set; }

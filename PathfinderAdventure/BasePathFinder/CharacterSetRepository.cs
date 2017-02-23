@@ -28,6 +28,8 @@ namespace PathfinderAdventure.BasePathFinder
                 Console.WriteLine("GetCharacters");
                 return DbCtxt.Characters.Include("AbilitiesSet")
                                         .Include("CoinsQuantity")
+                                        .Include(x => x.Weapons)
+                                        .Include(x => x.Race)
                                         .ToList();
             }
         }
@@ -53,6 +55,7 @@ namespace PathfinderAdventure.BasePathFinder
                                            .Include(x => x.AbilitiesSet.Strenght)
                                            .Include(x => x.AbilitiesSet.Widsom)
                                            .Include(w => w.Race)
+                                           .Include(w => w.Health)
                                            .FirstOrDefault(x => x.Name.StartsWith(name));
                 return res;
             }

@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using PathfinderAdventure;
 using PathfinderAdventure.BasePathFinder;
+using System.Threading.Tasks;
 
 namespace PathfinderWebServiceLib
 {
@@ -22,11 +23,25 @@ namespace PathfinderWebServiceLib
         [OperationContract]
         Character GetCharacterPersoWs(string name);
 
+        [OperationContract(AsyncPattern = true)]
+        IAsyncResult BeginGetCharacterPersoWs(string name, AsyncCallback clb, object asyncState);
+
+        Character EndGetCharacterPersoWs(IAsyncResult result);
+
+        [OperationContract]
+        Task<Character> GetCharacterPersoWs2Async(string name);
+
         [OperationContract]
         List<Ability> GetAbilities();
 
         [OperationContract]
         void CreateCharacter(CharacterWs c);
+
+        [OperationContract]
+        void PartagePositionPerso(int ligne, int colonne);
+
+        [OperationContract]
+        IEnumerable<Race> GetRaces();
 
         /// <summary>
         /// Update la liste des caracteres persos

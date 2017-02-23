@@ -9,12 +9,14 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 
 namespace PathfinderAdventure
 {
     /// <summary>
     /// Description of CharacterHealth.
     /// </summary>
+    [DataContract]
     public class CharacterHealth
     {
         public enum VitalHealthState { ALIVE, DYING, DIED };
@@ -23,7 +25,10 @@ namespace PathfinderAdventure
 
         public int Id { get; set; }
         public int MaxHealthPoint { get; set; }
+
+        [DataMember]
         public int CurrentHealthPoint { get; set; }
+
         public int TmpMaxHealthPoint { get; set; }
         public int TmpCurrentHealthPoint { get; set; }
         public VitalHealthState HealthState { get; set; }

@@ -25,6 +25,7 @@ namespace PathfinderAdventure
 
         public enum WeaponSpecialStatus { NONE, IMPROVISED, MONK, NONLETHAL };
 
+        public int Id { get; set; }
         public Weapon.WeaponAccessibility Accessibility { get; set; }
         public Weapon.WeaponHandling Handling { get; set; }
         public Weapon.WeaponRange Range { get; set; }

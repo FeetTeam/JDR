@@ -4,155 +4,159 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClientWPF"
-        xmlns:PathfinderAdventure="clr-namespace:PathfinderAdventure;assembly=PathfinderAdventure" xmlns:PathfinderControlsLib="clr-namespace:PathfinderControlsLib;assembly=PathfinderControlsLib" x:Class="ClientWPF.ServerMainWindow"
+        xmlns:PathfinderAdventure="clr-namespace:PathfinderAdventure;assembly=PathfinderAdventure" xmlns:PathfinderControlsLib="clr-namespace:PathfinderControlsLib;assembly=PathfinderControlsLib" x:Class="ClientWPF.ClientMainWindow"
         mc:Ignorable="d"
 
-        Title="Client" Height="701.667" Width="1103" Loaded="Window_Loaded">
+        Title="Client" Height="1080" Width="1920" Loaded="Window_Loaded">
     <Window.Resources>
         <CollectionViewSource x:Key="characterViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Character}, CreateList=True}" />
         <CollectionViewSource x:Key="coinsViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Coins}, CreateList=True}" />
+        <local:MyStateToBoolConverter x:Key="myStateToBoolConverter"></local:MyStateToBoolConverter>
+        <local:DebugConverter x:Key="myDebugConverter"></local:DebugConverter>
+        <CollectionViewSource x:Key="raceViewSource" d:DesignSource="{d:DesignInstance {x:Type PathfinderAdventure:Race}, CreateList=True}" />
     </Window.Resources>
     <Canvas x:Name="canvas1" Margin="10,45,3,8.667" DataContext="{StaticResource characterViewSource}">
-        <Grid x:Name="grid1"  HorizontalAlignment="Left" Canvas.Left="139" VerticalAlignment="Top" Canvas.Top="7">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-        </Grid>
-        <Grid x:Name="grid4" DataContext="{StaticResource characterViewSource}" HorizontalAlignment="Left" Canvas.Left="14" Canvas.Top="124" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
-            <Grid.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform />
-                    <SkewTransform />
-                    <RotateTransform Angle="19.138" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Grid.RenderTransform>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-        </Grid>
         <Button x:Name="button" Content="Get" Canvas.Left="189" Canvas.Top="-31" Width="75" Click="buttonGet_Click" />
         <Button x:Name="button1" Content="Set" Canvas.Left="269" Canvas.Top="-31" Width="75" Click="buttonSet_Click" />
-        <Grid x:Name="grid5" HorizontalAlignment="Left" Canvas.Left="349" Canvas.Top="196" VerticalAlignment="Top" Width="230">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Label Content="Copper Coins:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-            <TextBox x:Name="copperCoinsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding CoinsQuantity.CopperCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-            <Label Content="Gold Coins:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
-            <TextBox x:Name="goldCoinsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding CoinsQuantity.GoldCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-            <Label Content="Silver Coins:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
-            <TextBox x:Name="silverCoinsTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding CoinsQuantity.SilverCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
+        <Grid Height="452" Canvas.Left="35" Canvas.Top="10" Width="229">
+            <Label Content="Copper Coins:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,75,0,64" />
+            <TextBox x:Name="copperCoinsTextBox" HorizontalAlignment="Left" Text="{Binding CoinsQuantity.CopperCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Height="24" Margin="109,71,0,70" />
+            <Label Content="Gold Coins:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="13,107,0,32" />
+            <TextBox x:Name="goldCoinsTextBox" HorizontalAlignment="Left" Text="{Binding CoinsQuantity.GoldCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Height="24" Margin="109,103,0,38" />
+            <Label Content="Silver Coins:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="9,139,0,0" />
+            <TextBox x:Name="silverCoinsTextBox" HorizontalAlignment="Left" IsEnabled="{Binding  Converter={StaticResource ResourceKey=myStateToBoolConverter} }" Text="{Binding CoinsQuantity.SilverCoins, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Height="24" Margin="109,135,0,6" />
+            <Label Content="Name:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="40,1,0,138" />
+            <TextBox x:Name="nameTextBox" HorizontalAlignment="Left" Height="24" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Margin="109,0,0,141" />
+            <Label Content="Gender:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="32,27,0,112" />
+            <TextBox x:Name="genderTextBox" HorizontalAlignment="Left" Height="23"  Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" Margin="109,31,0,111" />
+            <Image x:Name="image" Width="100" Height="100" Margin="13,10,116,342" MouseDown="image_MouseDown" />
+            <CheckBox x:Name="checkBox" Content="" HorizontalAlignment="Left" Margin="132,55,0,0" VerticalAlignment="Top" Checked="checkBox_Checked" />
         </Grid>
         <Button x:Name="btAdd" Content="New" Canvas.Left="109" Canvas.Top="-31" Width="75" Click="btNew_Click" />
-        <Grid x:Name="grid2" HorizontalAlignment="Left" Canvas.Left="95" Canvas.Top="206" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-            <TextBox x:Name="nameTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-        </Grid>
-        <Grid x:Name="grid3" HorizontalAlignment="Left" Canvas.Left="87" Canvas.Top="254" VerticalAlignment="Top">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="Auto" />
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <Label Content="Gender:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-            <TextBox x:Name="genderTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding Gender, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-        </Grid>
-        <WrapPanel x:Name="wrapPanel1" Height="295" Canvas.Left="74" Canvas.Top="303" Width="834">
-            <Grid x:Name="grid6" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-                <TextBox x:Name="idTextBox" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Charisma.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
-                <TextBox x:Name="modifyingTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Charisma.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
-                <TextBox x:Name="nameTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding AbilitiesSet.Charisma.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Tmp Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" />
-                <TextBox x:Name="tmpValueTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding AbilitiesSet.Charisma.TmpValue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
-                <TextBox x:Name="valueTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding AbilitiesSet.Charisma.Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-            </Grid>
-            <Grid x:Name="grid7" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-                <TextBox x:Name="idTextBox1" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Constitution.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
-                <TextBox x:Name="modifyingTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Constitution.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
-                <TextBox x:Name="nameTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding AbilitiesSet.Constitution.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Tmp Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" />
-                <TextBox x:Name="tmpValueTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding AbilitiesSet.Constitution.TmpValue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
-                <TextBox x:Name="valueTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding AbilitiesSet.Constitution.Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-            </Grid>
-            <Grid x:Name="grid8" HorizontalAlignment="Left" VerticalAlignment="Top">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" />
-                <TextBox x:Name="idTextBox2" Visibility="Hidden" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding AbilitiesSet.Dexterity.Id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Modifying:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" />
-                <TextBox x:Name="modifyingTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding AbilitiesSet.Dexterity.Modifying, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Name:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" />
-                <TextBox x:Name="nameTextBox3" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding AbilitiesSet.Dexterity.Name, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Tmp Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" />
-                <TextBox x:Name="tmpValueTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding AbilitiesSet.Dexterity.TmpValue, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-                <Label Content="Value:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" />
-                <TextBox x:Name="valueTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding AbilitiesSet.Dexterity.Value, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="120" />
-            </Grid>
-            <PathfinderControlsLib:CaracteristiquesDetailsView Name="carac" />
-        </WrapPanel>
-        <DataGrid x:Name="dataGrid" Canvas.Left="109" Canvas.Top="10" Height="152" Width="862" />
+        <PathfinderControlsLib:CaracteristiquesDetailsView x:Name="carac" Canvas.Left="55" Canvas.Top="503" />
+        <PathfinderControlsLib:DrawingTable Name="DrawingTable1"  Height="380" Canvas.Left="306" Canvas.Top="202" Width="630" />
+        <DataGrid x:Name="characterDataGrid"  DataGridCell.GotFocus="characterDataGrid_GotFocus"  AutoGenerateColumns="False" SelectionMode="Single" EnableRowVirtualization="True" Height="177"
+                  ItemsSource="{Binding}"  Canvas.Left="230" RowDetailsVisibilityMode="VisibleWhenSelected" Canvas.Top="10" Width="1446" PreparingCellForEdit="characterDataGrid_PreparingCellForEdit">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn x:Name="abilitiesSetColumn" Header="Abilities Set" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding AbilitiesSet}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="activeArmorColumn" Header="Active Armor" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding ActiveArmor}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="activeShieldColumn" Header="Active Shield" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding ActiveShield}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="activeWeaponColumn" Header="Active Weapon" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding ActiveWeapon}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="alignmentColumn" Header="Alignment" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding Alignment}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="animalCompanionColumn" Header="Animal Companion" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding AnimalCompanion}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="avatarColumn" Header="Avatar" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Avatar}" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="characterPlayerColumn" Header="Character Player" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding CharacterPlayer}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="classesColumn" Header="Classes" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding Classes}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="dexModifyingWithArmorColumn" Binding="{Binding DexModifyingWithArmor}" Header="Dex Modifying With Armor" Width="SizeToHeader" />
+                <DataGridTemplateColumn x:Name="featsColumn" Header="Feats" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding Feats}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn x:Name="genderColumn" Binding="{Binding Gender}" Header="Gender" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding Id}" Header="Id" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="initiativeBonusColumn" Binding="{Binding InitiativeBonus}" Header="Initiative Bonus" Width="SizeToHeader" />
+                <DataGridTextColumn x:Name="nameColumn" Binding="{Binding Name, Mode=TwoWay}" Header="Name" Width="SizeToHeader" />
+                <DataGridComboBoxColumn x:Name="raceColumn" Header="Race" Width="100"
+                                        SelectedItemBinding="{Binding Race}"
+                                        SelectedValueBinding="{Binding Race.Id}"
+                                        SelectedValuePath="Id"
+                                        DisplayMemberPath="Name"
+                                        ItemsSource="{Binding Source={StaticResource raceViewSource}}">
+                </DataGridComboBoxColumn>
+                <DataGridTemplateColumn x:Name="savingThrowsColumn" Header="Saving Throws" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding SavingThrows}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn x:Name="skillsColumn" Header="Skills" Width="SizeToHeader">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox>
+                                <ComboBoxItem Content="{Binding Skills}" />
+                            </ComboBox>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </Canvas>
 </Window>

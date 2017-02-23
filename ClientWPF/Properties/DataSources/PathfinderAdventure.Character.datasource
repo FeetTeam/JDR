@@ -8,13 +8,27 @@
 <GenericObjectDataSource DisplayName="Character" Version="1.0" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
    <Children>
       <GenericObjectDataSource DisplayName="Race" Version="1.0">
-         <TypeInfo>PathfinderAdventure.Race, PathfinderAdventure, Version=1.0.6254.779, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeInfo>PathfinderAdventure.Race, PathfinderAdventure, Version=1.0.6258.40633, Culture=neutral, PublicKeyToken=null</TypeInfo>
          <TypeUISetting>
             <PropertyUISettings>
                <PropertyUISetting Name="Character.Race">
                   <ControlSettings>
                      <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
-                        <BindableControlInfo Name="Détails" Type="Microsoft.VSDesigner.Data.DataForm.Windows.DetailView" />
+                        <BindableControlInfo Name="ComboBox" Type="System.Windows.Controls.ComboBox" AssemblyName="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="Description">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="[Aucun]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
+                     </ControlSetting>
+                  </ControlSettings>
+               </PropertyUISetting>
+               <PropertyUISetting Name="LevelAdjustment">
+                  <ControlSettings>
+                     <ControlSetting ArtifactName="Microsoft:System.Windows:WPF">
+                        <BindableControlInfo Name="[Aucun]" Type="Microsoft.VSDesigner.Data.BindManager.NoneControlPlaceHolder" />
                      </ControlSetting>
                   </ControlSettings>
                </PropertyUISetting>
@@ -22,7 +36,7 @@
          </TypeUISetting>
       </GenericObjectDataSource>
       <GenericObjectDataSource DisplayName="AbilitiesSet" Version="1.0">
-         <TypeInfo>PathfinderAdventure.AbilitiesSet, PathfinderAdventure, Version=1.0.6254.779, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeInfo>PathfinderAdventure.AbilitiesSet, PathfinderAdventure, Version=1.0.6258.40633, Culture=neutral, PublicKeyToken=null</TypeInfo>
          <TypeUISetting>
             <PropertyUISettings>
                <PropertyUISetting Name="Character.Abilities">
@@ -33,8 +47,11 @@
             </PropertyUISettings>
          </TypeUISetting>
       </GenericObjectDataSource>
+      <GenericObjectDataSource DisplayName="Languages" Version="1.0">
+         <TypeInfo>PathfinderAdventure.Language, PathfinderAdventure, Version=1.0.6258.40633, Culture=neutral, PublicKeyToken=null</TypeInfo>
+      </GenericObjectDataSource>
       <GenericObjectDataSource DisplayName="CoinsQuantity" Version="1.0">
-         <TypeInfo>PathfinderAdventure.Coins, PathfinderAdventure, Version=1.0.6254.779, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeInfo>PathfinderAdventure.Coins, PathfinderAdventure, Version=1.0.6258.40633, Culture=neutral, PublicKeyToken=null</TypeInfo>
          <TypeUISetting>
             <PropertyUISettings>
                <PropertyUISetting Name="Character.CoinsQuantity">
@@ -48,7 +65,7 @@
          </TypeUISetting>
       </GenericObjectDataSource>
       <GenericObjectDataSource DisplayName="Strenght" Version="1.0">
-         <TypeInfo>PathfinderAdventure.Ability, PathfinderAdventure, Version=1.0.6254.779, Culture=neutral, PublicKeyToken=null</TypeInfo>
+         <TypeInfo>PathfinderAdventure.Ability, PathfinderAdventure, Version=1.0.6258.40633, Culture=neutral, PublicKeyToken=null</TypeInfo>
          <TypeUISetting>
             <PropertyUISettings>
                <PropertyUISetting Name="Character.Abilities.Charisma">
@@ -96,7 +113,7 @@
          </TypeUISetting>
       </GenericObjectDataSource>
    </Children>
-   <TypeInfo>PathfinderAdventure.Character, PathfinderAdventure, Version=1.0.6254.779, Culture=neutral, PublicKeyToken=null</TypeInfo>
+   <TypeInfo>PathfinderAdventure.Character, PathfinderAdventure, Version=1.0.6258.40633, Culture=neutral, PublicKeyToken=null</TypeInfo>
    <TypeUISetting>
       <PropertyUISettings>
          <PropertyUISetting Name="ArmorClass">

@@ -58,6 +58,7 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq">
@@ -72,7 +73,9 @@
     <Compile Include="AbilitiesSet.cs" />
     <Compile Include="BasePathFinder\AbilitiesSetRepository.cs" />
     <Compile Include="BasePathFinder\CharacterSetRepository.cs" />
+    <Compile Include="BasePathFinder\InitDb.cs" />
     <Compile Include="BasePathFinder\PathFinderDbContext.cs" />
+    <Compile Include="BasePathFinder\RacesRepository.cs" />
     <Compile Include="Character.cs" />
     <Compile Include="CharacterClass.cs" />
     <Compile Include="CharacterHealth.cs" />
@@ -112,6 +115,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Character.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Drawing;
 using System.Runtime.Serialization;
 
 namespace PathfinderAdventure
@@ -33,5 +35,8 @@ namespace PathfinderAdventure
         SavingThrows SavingThrows { get; set; }
         SkillSet Skills { get; set; }
         List<Weapon> Weapons { get; set; }
+
+        //Bitmap Avatar { get; set; }
+        byte[] BytesAvatar { get; set; }
     }
 }

@@ -2,10 +2,8 @@
 using PathfinderAdventure.BasePathFinder;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace PathfinderWebServiceLib
 {
@@ -74,6 +72,31 @@ namespace PathfinderWebServiceLib
 
         public void UpdateCharacterPersoList(List<Character> lPerso)
         {
+        }
+
+        public void PartagePositionPerso(int ligne, int colonne)
+        {
+        }
+
+        public IAsyncResult BeginGetCharacterPersoWs(string name, AsyncCallback clb, object asyncState)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Character EndGetCharacterPersoWs(IAsyncResult result)
+        {
+            throw new NotImplementedException();
+        }
+
+        public async Task<Character> GetCharacterPersoWs2Async(string name)
+        {
+            return await Task.Factory.StartNew(() => new CharacterSetRepository().GetCharacterPerso(name));
+        }
+
+        public IEnumerable<Race> GetRaces()
+        {
+            var repo = new RacesRepository();
+            return repo.GetRaces();
         }
     }
 

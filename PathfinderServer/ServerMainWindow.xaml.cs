@@ -1,4 +1,5 @@
-﻿using PathfinderWebServiceLib;
+﻿using PathfinderAdventure.BasePathFinder;
+using PathfinderWebServiceLib;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,11 @@ namespace PathfinderServer
             InitializeComponent();
             var dbctxt = new PathfinderAdventure.BasePathFinder.PathFinderDbContext();
 
-            dbctxt.Database.CreateIfNotExists();
+            if (!dbctxt.Database.Exists())
+            {
+                dbctxt.Database.Create();
+                InitDb.Start();
+            }
 
             service = new CharacterService();
             service.OnLog += Service_OnLog;

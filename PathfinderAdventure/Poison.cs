@@ -16,6 +16,7 @@ namespace PathfinderAdventure
     {
         public enum PoisonCategory { CONTACT, INGESTED, INHALED, INJURY };
 
+        public int Id { get; set; }
         public PoisonCategory category { get; set; }
         public int DifficultyClass { get; set; }
         public string InitialDamageDescription { get; set; }
